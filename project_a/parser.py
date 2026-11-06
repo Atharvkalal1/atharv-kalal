@@ -42,7 +42,7 @@ def _blank_facts() -> dict:
                 c80=None, nps=None, hl=None, hs=None, hp=None, parents_senior=None,
                 flags=dict(no_rent=False, no_ded=False, no_hra=False, own_house=False, negative=False, insurance_unspecified=False,
                            mf_unspecified=False, emi_no_interest=False, hl_no_interest=False, missing_amount=[],
-                           senior_claim_self=False, hra_exemption_claim=False, rent_mentioned=False))
+                           senior_claim_self=False, hra_exemption_claim=False, rent_mentioned=False, conflicts=[]))
 
 
 def extract_rules(text: str) -> dict:
@@ -102,6 +102,10 @@ def extract_rules(text: str) -> dict:
         if re.search(r"senior\s+citizen|senior\s+slab|senior\s+rebate", c) and not has(PARENT) and field != "hs":
             fl["senior_claim_self"] = True
         if field is None:
+            # a bare amount right after a stated field ("salary 12 lakh aur 18 lakh") that disagrees with it
+            if amt is not None and last in ("gross", "basic", "hra") and f.get(last) not in (None, amt) \
+                    and re.fullmatch(r"\s*[\d.]+\s*(?:lakhs?|lacs?|lpa|crores?|cr|l|k)?\s*", c):
+                fl["conflicts"].append(last)
             continue
         if amt is None:
             if field == "c80" and has("max", "maximum", "full"): amt = 150000
@@ -118,6 +122,7 @@ def extract_rules(text: str) -> dict:
             f["rent_period"] = "monthly" if re.search(MONTHLY, c) else "annual" if re.search(ANNUAL, c) else None
         else:
             if f.get(field) is None: f[field] = amt
+            elif f[field] != amt and field != "gross_alt": fl["conflicts"].append(field)
         last = field
     if fl["rent_mentioned"] and f["rent_amount"] is None and not fl["no_rent"]: fl["missing_amount"].append("rent")
     # 'senior citizen' / 'retired' hints on the taxpayer
@@ -156,6 +161,10 @@ def gate(f: dict) -> dict:
     if fl["negative"]: need("Negative amount or age.", "Some values look negative. Please re-enter salary, rent and deductions as positive numbers.")
     if f["gross"] is None: need("Gross salary not given.", "What is your total annual gross salary (CTC)?")
     elif f["gross"] < 10_000: need(f"Gross salary {f['gross']} looks too small.", "Is your gross salary monthly or annual, and what is the annual amount?")
+    for k in dict.fromkeys(fl.get("conflicts", [])):
+        need(f"Two different amounts given for {k}.", f"You gave two different amounts for {k}. Which one is correct?")
+    if f["age"] is not None and f["age"] > 120: need(f"Age {f['age']} is not realistic.", "Please re-check your age.")
+    if f["gross"] and f["gross"] > 10_000_000_000: need("Gross salary is unrealistically large.", "That salary looks too large. Please re-enter the annual amount in rupees.")
     if f["age"] is not None and f["age"] < 18: need(f"Age {f['age']} is below 18.", "Please confirm your age (salaried individuals are 18+).")
     if f["gross"]:
         g = f["gross"]
