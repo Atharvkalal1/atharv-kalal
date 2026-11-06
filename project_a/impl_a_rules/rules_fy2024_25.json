@@ -1,0 +1,26 @@
+{
+  "fy": "2024-25",
+  "cess_pct": 4,
+  "surcharge_thresholds": [[5000000, 10], [10000000, 15], [20000000, 25], [50000000, 37]],
+  "senior_age": 60,
+  "super_senior_age": 80,
+  "new": {
+    "standard_deduction": 75000,
+    "slabs": [[300000, 0], [700000, 5], [1000000, 10], [1200000, 15], [1500000, 20], [null, 30]],
+    "rebate": {"limit": 700000, "max": 25000, "marginal_relief": true},
+    "surcharge_max_rate": 25
+  },
+  "old": {
+    "standard_deduction": 50000,
+    "slab_sets": {
+      "regular":      [[250000, 0], [500000, 5], [1000000, 20], [null, 30]],
+      "senior":       [[300000, 0], [500000, 5], [1000000, 20], [null, 30]],
+      "super_senior": [[500000, 0], [1000000, 20], [null, 30]]
+    },
+    "rebate": {"limit": 500000, "max": 12500, "marginal_relief": false},
+    "surcharge_max_rate": 37,
+    "caps": {"80c": 150000, "80ccd1b": 50000, "80d_self": 25000, "80d_self_senior": 50000,
+             "80d_parents": 25000, "80d_parents_senior": 50000, "24b": 200000},
+    "hra": {"metro_pct": 50, "non_metro_pct": 40, "rent_excess_pct": 10}
+  }
+}

@@ -1,0 +1,3317 @@
+[
+  {
+    "id": "TC_001",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 300000
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_002",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 400000
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_003",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 500000
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_004",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 550000
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_005",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 600000
+    },
+    "expected_old": 23400,
+    "expected_new": 0,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_006",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 700000
+    },
+    "expected_old": 44200,
+    "expected_new": 0,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_007",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 750000
+    },
+    "expected_old": 54600,
+    "expected_new": 0,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_008",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 775000
+    },
+    "expected_old": 59800,
+    "expected_new": 0,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_009",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 800000
+    },
+    "expected_old": 65000,
+    "expected_new": 23400,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_010",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 900000
+    },
+    "expected_old": 85800,
+    "expected_new": 33800,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_011",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 1000000
+    },
+    "expected_old": 106600,
+    "expected_new": 44200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_012",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 1200000
+    },
+    "expected_old": 163800,
+    "expected_new": 71500,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_013",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 1500000
+    },
+    "expected_old": 257400,
+    "expected_new": 130000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_014",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 1800000
+    },
+    "expected_old": 351000,
+    "expected_new": 215800,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_015",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 2000000
+    },
+    "expected_old": 413400,
+    "expected_new": 278200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_016",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 2500000
+    },
+    "expected_old": 569400,
+    "expected_new": 434200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_017",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 3000000
+    },
+    "expected_old": 725400,
+    "expected_new": 590200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_018",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 4000000
+    },
+    "expected_old": 1037400,
+    "expected_new": 902200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_019",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 5000000
+    },
+    "expected_old": 1349400,
+    "expected_new": 1214200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_020",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 5085000
+    },
+    "expected_old": 1401400,
+    "expected_new": 1248000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_021",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 5500000
+    },
+    "expected_old": 1655940,
+    "expected_new": 1507220,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_022",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 6000000
+    },
+    "expected_old": 1827540,
+    "expected_new": 1678820,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_023",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 7500000
+    },
+    "expected_old": 2342340,
+    "expected_new": 2193620,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_024",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 10000000
+    },
+    "expected_old": 3200340,
+    "expected_new": 3051620,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_025",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 10500000
+    },
+    "expected_old": 3525210,
+    "expected_new": 3369730,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_026",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 15000000
+    },
+    "expected_old": 5139810,
+    "expected_new": 4984330,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_027",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 20000000
+    },
+    "expected_old": 6933810,
+    "expected_new": 6778330,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_028",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 20500000
+    },
+    "expected_old": 7419750,
+    "expected_new": 7247240,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_029",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 30000000
+    },
+    "expected_old": 11436750,
+    "expected_new": 11267750,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_030",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 50000000
+    },
+    "expected_old": 19236750,
+    "expected_new": 19067750,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_031",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 50850000
+    },
+    "expected_old": 20088250,
+    "expected_new": 19399250,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_032",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 60000000
+    },
+    "expected_old": 25357880,
+    "expected_new": 22967750,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_033",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 80000000
+    },
+    "expected_old": 33906680,
+    "expected_new": 30767750,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_034",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 100000000
+    },
+    "expected_old": 42455480,
+    "expected_new": 38567750,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_035",
+    "category": "official_reference",
+    "verify_official_calculator": true,
+    "input": {
+      "gross_salary": 120000000
+    },
+    "expected_old": 51004280,
+    "expected_new": 46367750,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_036",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 299000
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_037",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 299990
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_038",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 300000
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_039",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 300010
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_040",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 301000
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_041",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 374000
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_042",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 374990
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_043",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 375000
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_044",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 375010
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_045",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 376000
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_046",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 549000
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_047",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 549990
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_048",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 550000
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_049",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 550010
+    },
+    "expected_old": 13000,
+    "expected_new": 0,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_050",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 551000
+    },
+    "expected_old": 13210,
+    "expected_new": 0,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_051",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 774000
+    },
+    "expected_old": 59590,
+    "expected_new": 0,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_052",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 774990
+    },
+    "expected_old": 59800,
+    "expected_new": 0,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_053",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 775000
+    },
+    "expected_old": 59800,
+    "expected_new": 0,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_054",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 775010
+    },
+    "expected_old": 59800,
+    "expected_new": 10,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_055",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 776000
+    },
+    "expected_old": 60010,
+    "expected_new": 1040,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_056",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 801778
+    },
+    "expected_old": 65370,
+    "expected_new": 23590,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_057",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 802768
+    },
+    "expected_old": 65580,
+    "expected_new": 23690,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_058",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 802778
+    },
+    "expected_old": 65580,
+    "expected_new": 23690,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_059",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 802788
+    },
+    "expected_old": 65580,
+    "expected_new": 23690,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_060",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 803778
+    },
+    "expected_old": 65790,
+    "expected_new": 23790,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_061",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1074000
+    },
+    "expected_old": 124490,
+    "expected_new": 51900,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_062",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1074990
+    },
+    "expected_old": 124800,
+    "expected_new": 52000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_063",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1075000
+    },
+    "expected_old": 124800,
+    "expected_new": 52000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_064",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1075010
+    },
+    "expected_old": 124800,
+    "expected_new": 52000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_065",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1076000
+    },
+    "expected_old": 125110,
+    "expected_new": 52160,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_066",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1274000
+    },
+    "expected_old": 186890,
+    "expected_new": 83040,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_067",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1274990
+    },
+    "expected_old": 187200,
+    "expected_new": 83200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_068",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1275000
+    },
+    "expected_old": 187200,
+    "expected_new": 83200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_069",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1275010
+    },
+    "expected_old": 187200,
+    "expected_new": 83200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_070",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1276000
+    },
+    "expected_old": 187510,
+    "expected_new": 83410,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_071",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1574000
+    },
+    "expected_old": 280490,
+    "expected_new": 145390,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_072",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1574990
+    },
+    "expected_old": 280800,
+    "expected_new": 145600,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_073",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1575000
+    },
+    "expected_old": 280800,
+    "expected_new": 145600,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_074",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1575010
+    },
+    "expected_old": 280800,
+    "expected_new": 145600,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_075",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1576000
+    },
+    "expected_old": 281110,
+    "expected_new": 145910,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_076",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 5074000
+    },
+    "expected_old": 1389960,
+    "expected_new": 1237290,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_077",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 5074990
+    },
+    "expected_old": 1390990,
+    "expected_new": 1237600,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_078",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 5075000
+    },
+    "expected_old": 1391000,
+    "expected_new": 1237600,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_079",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 5075010
+    },
+    "expected_old": 1391010,
+    "expected_new": 1237610,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_080",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 5076000
+    },
+    "expected_old": 1392040,
+    "expected_new": 1238640,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_081",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 10074000
+    },
+    "expected_old": 3242460,
+    "expected_new": 3077020,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_082",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 10074990
+    },
+    "expected_old": 3243490,
+    "expected_new": 3077360,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_083",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 10075000
+    },
+    "expected_old": 3243500,
+    "expected_new": 3077360,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_084",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 10075010
+    },
+    "expected_old": 3243510,
+    "expected_new": 3077370,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_085",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 10076000
+    },
+    "expected_old": 3244540,
+    "expected_new": 3078400,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_086",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 20074000
+    },
+    "expected_old": 6976710,
+    "expected_new": 6804880,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_087",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 20074990
+    },
+    "expected_old": 6977740,
+    "expected_new": 6805240,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_088",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 20075000
+    },
+    "expected_old": 6977750,
+    "expected_new": 6805240,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_089",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 20075010
+    },
+    "expected_old": 6977760,
+    "expected_new": 6805250,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_090",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 20076000
+    },
+    "expected_old": 6978790,
+    "expected_new": 6806280,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_091",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 50074000
+    },
+    "expected_old": 19281210,
+    "expected_new": 19096610,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_092",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 50074990
+    },
+    "expected_old": 19282240,
+    "expected_new": 19097000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_093",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 50075000
+    },
+    "expected_old": 19282250,
+    "expected_new": 19097000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_094",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 50075010
+    },
+    "expected_old": 19282260,
+    "expected_new": 19097000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_095",
+    "category": "boundary_sweep",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 50076000
+    },
+    "expected_old": 19283290,
+    "expected_new": 19097390,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_096",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 800000,
+      "basic_da": 246002,
+      "hra_received": 87332,
+      "rent_paid": 52055,
+      "metro_city": false,
+      "sec_80c": 0,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 0,
+      "age": 28,
+      "health_self": 0,
+      "health_parents": 25000,
+      "parents_senior": true
+    },
+    "expected_old": 43690,
+    "expected_new": 23400,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_097",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 3000000,
+      "basic_da": 923882,
+      "hra_received": 313905,
+      "rent_paid": 392596,
+      "metro_city": false,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 200000,
+      "age": 28,
+      "health_self": 25000,
+      "health_parents": 60000,
+      "parents_senior": true
+    },
+    "expected_old": 514730,
+    "expected_new": 590200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_098",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1200000,
+      "basic_da": 437512,
+      "hra_received": 198061,
+      "rent_paid": 66110,
+      "metro_city": true,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 200000,
+      "age": 28,
+      "health_self": 50000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 55150,
+    "expected_new": 71500,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_099",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 647280,
+      "hra_received": 232137,
+      "rent_paid": 268180,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 0,
+      "age": 28,
+      "health_self": 25000,
+      "health_parents": 50000,
+      "parents_senior": false
+    },
+    "expected_old": 279720,
+    "expected_new": 278200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_100",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1200000,
+      "basic_da": 671934,
+      "hra_received": 252664,
+      "rent_paid": 219524,
+      "metro_city": false,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 200000,
+      "age": 60,
+      "health_self": 30000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 45280,
+    "expected_new": 71500,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_101",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1200000,
+      "basic_da": 552290,
+      "hra_received": 192728,
+      "rent_paid": 182879,
+      "metro_city": true,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 0,
+      "age": 60,
+      "health_self": 0,
+      "health_parents": 50000,
+      "parents_senior": true
+    },
+    "expected_old": 87850,
+    "expected_new": 71500,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_102",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 800000,
+      "basic_da": 290635,
+      "hra_received": 141999,
+      "rent_paid": 156415,
+      "metro_city": true,
+      "sec_80c": 200000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 300000,
+      "age": 60,
+      "health_self": 30000,
+      "health_parents": 25000,
+      "parents_senior": true
+    },
+    "expected_old": 0,
+    "expected_new": 23400,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_103",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 3000000,
+      "basic_da": 1385079,
+      "hra_received": 622458,
+      "rent_paid": 435215,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 100000,
+      "age": 85,
+      "health_self": 50000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 518430,
+    "expected_new": 590200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_104",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 800000,
+      "basic_da": 276681,
+      "hra_received": 91857,
+      "rent_paid": 121806,
+      "metro_city": false,
+      "sec_80c": 200000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 300000,
+      "age": 85,
+      "health_self": 30000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 0,
+    "expected_new": 23400,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_105",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 800000,
+      "basic_da": 403610,
+      "hra_received": 164428,
+      "rent_paid": 94207,
+      "metro_city": false,
+      "sec_80c": 0,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 300000,
+      "age": 60,
+      "health_self": 50000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 0,
+    "expected_new": 23400,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_106",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1500000,
+      "basic_da": 887349,
+      "hra_received": 401429,
+      "rent_paid": 313980,
+      "metro_city": true,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 100000,
+      "age": 65,
+      "health_self": 25000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 98750,
+    "expected_new": 130000,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_107",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 611686,
+      "hra_received": 297169,
+      "rent_paid": 329919,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 0,
+      "age": 60,
+      "health_self": 0,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 279860,
+    "expected_new": 278200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_108",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 800000,
+      "basic_da": 474716,
+      "hra_received": 192991,
+      "rent_paid": 77321,
+      "metro_city": false,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 300000,
+      "age": 60,
+      "health_self": 25000,
+      "health_parents": 50000,
+      "parents_senior": true
+    },
+    "expected_old": 0,
+    "expected_new": 23400,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_109",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1500000,
+      "basic_da": 647145,
+      "hra_received": 261132,
+      "rent_paid": 103868,
+      "metro_city": true,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 0,
+      "home_loan_interest": 100000,
+      "age": 85,
+      "health_self": 25000,
+      "health_parents": 0,
+      "parents_senior": true
+    },
+    "expected_old": 146390,
+    "expected_new": 130000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_110",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 800000,
+      "basic_da": 294946,
+      "hra_received": 141893,
+      "rent_paid": 156267,
+      "metro_city": true,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 300000,
+      "age": 60,
+      "health_self": 25000,
+      "health_parents": 60000,
+      "parents_senior": true
+    },
+    "expected_old": 0,
+    "expected_new": 23400,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_111",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 1084498,
+      "hra_received": 366649,
+      "rent_paid": 161010,
+      "metro_city": true,
+      "sec_80c": 200000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 300000,
+      "age": 28,
+      "health_self": 0,
+      "health_parents": 0,
+      "parents_senior": true
+    },
+    "expected_old": 272200,
+    "expected_new": 278200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_112",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1500000,
+      "basic_da": 810266,
+      "hra_received": 260787,
+      "rent_paid": 158646,
+      "metro_city": false,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 100000,
+      "age": 65,
+      "health_self": 50000,
+      "health_parents": 25000,
+      "parents_senior": false
+    },
+    "expected_old": 144780,
+    "expected_new": 130000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_113",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 800000,
+      "basic_da": 346351,
+      "hra_received": 163571,
+      "rent_paid": 129937,
+      "metro_city": true,
+      "sec_80c": 0,
+      "nps_80ccd1b": 0,
+      "home_loan_interest": 100000,
+      "age": 60,
+      "health_self": 50000,
+      "health_parents": 60000,
+      "parents_senior": true
+    },
+    "expected_old": 0,
+    "expected_new": 23400,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_114",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 1141465,
+      "hra_received": 380025,
+      "rent_paid": 115376,
+      "metro_city": true,
+      "sec_80c": 200000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 300000,
+      "age": 85,
+      "health_self": 50000,
+      "health_parents": 25000,
+      "parents_senior": true
+    },
+    "expected_old": 251820,
+    "expected_new": 278200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_115",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1200000,
+      "basic_da": 708735,
+      "hra_received": 294717,
+      "rent_paid": 263009,
+      "metro_city": false,
+      "sec_80c": 0,
+      "nps_80ccd1b": 0,
+      "home_loan_interest": 300000,
+      "age": 85,
+      "health_self": 25000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 48440,
+    "expected_new": 71500,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_116",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 800000,
+      "basic_da": 444322,
+      "hra_received": 139385,
+      "rent_paid": 59530,
+      "metro_city": false,
+      "sec_80c": 200000,
+      "nps_80ccd1b": 0,
+      "home_loan_interest": 100000,
+      "age": 85,
+      "health_self": 0,
+      "health_parents": 0,
+      "parents_senior": true
+    },
+    "expected_old": 0,
+    "expected_new": 23400,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_117",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 3000000,
+      "basic_da": 1408704,
+      "hra_received": 511745,
+      "rent_paid": 324541,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 200000,
+      "age": 80,
+      "health_self": 25000,
+      "health_parents": 50000,
+      "parents_senior": true
+    },
+    "expected_old": 514700,
+    "expected_new": 590200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_118",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 800000,
+      "basic_da": 242235,
+      "hra_received": 102763,
+      "rent_paid": 92411,
+      "metro_city": true,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 100000,
+      "age": 65,
+      "health_self": 0,
+      "health_parents": 25000,
+      "parents_senior": true
+    },
+    "expected_old": 0,
+    "expected_new": 23400,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_119",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1200000,
+      "basic_da": 517746,
+      "hra_received": 211573,
+      "rent_paid": 130088,
+      "metro_city": false,
+      "sec_80c": 0,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 0,
+      "age": 60,
+      "health_self": 30000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 112670,
+    "expected_new": 71500,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_120",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 3000000,
+      "basic_da": 1039903,
+      "hra_received": 370570,
+      "rent_paid": 213507,
+      "metro_city": true,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 200000,
+      "age": 28,
+      "health_self": 0,
+      "health_parents": 60000,
+      "parents_senior": false
+    },
+    "expected_old": 558630,
+    "expected_new": 590200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_121",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 800000,
+      "basic_da": 240850,
+      "hra_received": 109399,
+      "rent_paid": 100809,
+      "metro_city": true,
+      "sec_80c": 200000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 0,
+      "age": 28,
+      "health_self": 0,
+      "health_parents": 25000,
+      "parents_senior": false
+    },
+    "expected_old": 0,
+    "expected_new": 23400,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_122",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1500000,
+      "basic_da": 712129,
+      "hra_received": 234731,
+      "rent_paid": 116591,
+      "metro_city": true,
+      "sec_80c": 0,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 100000,
+      "age": 60,
+      "health_self": 0,
+      "health_parents": 50000,
+      "parents_senior": false
+    },
+    "expected_old": 186040,
+    "expected_new": 130000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_123",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 1184302,
+      "hra_received": 532812,
+      "rent_paid": 666622,
+      "metro_city": true,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 300000,
+      "age": 28,
+      "health_self": 25000,
+      "health_parents": 50000,
+      "parents_senior": false
+    },
+    "expected_old": 145760,
+    "expected_new": 278200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_124",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 1081341,
+      "hra_received": 511271,
+      "rent_paid": 546482,
+      "metro_city": true,
+      "sec_80c": 0,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 0,
+      "age": 80,
+      "health_self": 25000,
+      "health_parents": 25000,
+      "parents_senior": false
+    },
+    "expected_old": 232440,
+    "expected_new": 278200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_125",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 809795,
+      "hra_received": 375831,
+      "rent_paid": 433776,
+      "metro_city": true,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 200000,
+      "age": 65,
+      "health_self": 0,
+      "health_parents": 50000,
+      "parents_senior": true
+    },
+    "expected_old": 191530,
+    "expected_new": 278200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_126",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 3000000,
+      "basic_da": 1259710,
+      "hra_received": 625105,
+      "rent_paid": 463709,
+      "metro_city": false,
+      "sec_80c": 0,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 100000,
+      "age": 85,
+      "health_self": 30000,
+      "health_parents": 0,
+      "parents_senior": true
+    },
+    "expected_old": 550870,
+    "expected_new": 590200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_127",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 807412,
+      "hra_received": 369217,
+      "rent_paid": 256916,
+      "metro_city": false,
+      "sec_80c": 0,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 100000,
+      "age": 65,
+      "health_self": 0,
+      "health_parents": 60000,
+      "parents_senior": true
+    },
+    "expected_old": 293440,
+    "expected_new": 278200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_128",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 3000000,
+      "basic_da": 1518171,
+      "hra_received": 740947,
+      "rent_paid": 711291,
+      "metro_city": true,
+      "sec_80c": 200000,
+      "nps_80ccd1b": 0,
+      "home_loan_interest": 200000,
+      "age": 85,
+      "health_self": 30000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 419290,
+    "expected_new": 590200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_129",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1500000,
+      "basic_da": 678205,
+      "hra_received": 293919,
+      "rent_paid": 178429,
+      "metro_city": false,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 300000,
+      "age": 80,
+      "health_self": 25000,
+      "health_parents": 50000,
+      "parents_senior": true
+    },
+    "expected_old": 101790,
+    "expected_new": 130000,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_130",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 800000,
+      "basic_da": 312929,
+      "hra_received": 107033,
+      "rent_paid": 154236,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 300000,
+      "age": 80,
+      "health_self": 25000,
+      "health_parents": 60000,
+      "parents_senior": false
+    },
+    "expected_old": 0,
+    "expected_new": 23400,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_131",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1200000,
+      "basic_da": 597186,
+      "hra_received": 213050,
+      "rent_paid": 257940,
+      "metro_city": false,
+      "sec_80c": 0,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 200000,
+      "age": 60,
+      "health_self": 25000,
+      "health_parents": 25000,
+      "parents_senior": true
+    },
+    "expected_old": 47170,
+    "expected_new": 71500,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_132",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1200000,
+      "basic_da": 714216,
+      "hra_received": 301581,
+      "rent_paid": 345855,
+      "metro_city": true,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 300000,
+      "age": 80,
+      "health_self": 25000,
+      "health_parents": 25000,
+      "parents_senior": false
+    },
+    "expected_old": 5320,
+    "expected_new": 71500,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_133",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 800000,
+      "basic_da": 454238,
+      "hra_received": 214440,
+      "rent_paid": 246529,
+      "metro_city": false,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 300000,
+      "age": 28,
+      "health_self": 25000,
+      "health_parents": 0,
+      "parents_senior": true
+    },
+    "expected_old": 0,
+    "expected_new": 23400,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_134",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 1000546,
+      "hra_received": 497850,
+      "rent_paid": 397943,
+      "metro_city": false,
+      "sec_80c": 200000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 300000,
+      "age": 60,
+      "health_self": 50000,
+      "health_parents": 60000,
+      "parents_senior": true
+    },
+    "expected_old": 161860,
+    "expected_new": 278200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_135",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1200000,
+      "basic_da": 662350,
+      "hra_received": 235440,
+      "rent_paid": 323781,
+      "metro_city": true,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 300000,
+      "age": 28,
+      "health_self": 30000,
+      "health_parents": 25000,
+      "parents_senior": true
+    },
+    "expected_old": 26430,
+    "expected_new": 71500,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_136",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1500000,
+      "basic_da": 851862,
+      "hra_received": 269286,
+      "rent_paid": 149429,
+      "metro_city": true,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 0,
+      "age": 80,
+      "health_self": 50000,
+      "health_parents": 50000,
+      "parents_senior": false
+    },
+    "expected_old": 177560,
+    "expected_new": 130000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_137",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 637359,
+      "hra_received": 297377,
+      "rent_paid": 187854,
+      "metro_city": false,
+      "sec_80c": 0,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 300000,
+      "age": 28,
+      "health_self": 30000,
+      "health_parents": 50000,
+      "parents_senior": false
+    },
+    "expected_old": 281080,
+    "expected_new": 278200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_138",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 922932,
+      "hra_received": 412483,
+      "rent_paid": 461405,
+      "metro_city": false,
+      "sec_80c": 200000,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 200000,
+      "age": 80,
+      "health_self": 50000,
+      "health_parents": 0,
+      "parents_senior": true
+    },
+    "expected_old": 152640,
+    "expected_new": 278200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_139",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 1034508,
+      "hra_received": 484254,
+      "rent_paid": 579087,
+      "metro_city": false,
+      "sec_80c": 0,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 0,
+      "age": 28,
+      "health_self": 50000,
+      "health_parents": 25000,
+      "parents_senior": false
+    },
+    "expected_old": 253090,
+    "expected_new": 278200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_140",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1200000,
+      "basic_da": 378102,
+      "hra_received": 142098,
+      "rent_paid": 77824,
+      "metro_city": true,
+      "sec_80c": 200000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 300000,
+      "age": 65,
+      "health_self": 0,
+      "health_parents": 60000,
+      "parents_senior": true
+    },
+    "expected_old": 43680,
+    "expected_new": 71500,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_141",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 3000000,
+      "basic_da": 946877,
+      "hra_received": 464333,
+      "rent_paid": 200843,
+      "metro_city": true,
+      "sec_80c": 0,
+      "nps_80ccd1b": 0,
+      "home_loan_interest": 100000,
+      "age": 60,
+      "health_self": 0,
+      "health_parents": 25000,
+      "parents_senior": true
+    },
+    "expected_old": 650680,
+    "expected_new": 590200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_142",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 1001675,
+      "hra_received": 413485,
+      "rent_paid": 209332,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 0,
+      "age": 60,
+      "health_self": 30000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 312780,
+    "expected_new": 278200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_143",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1500000,
+      "basic_da": 709108,
+      "hra_received": 341510,
+      "rent_paid": 203977,
+      "metro_city": false,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 0,
+      "home_loan_interest": 100000,
+      "age": 28,
+      "health_self": 30000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 161280,
+    "expected_new": 130000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_144",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 3000000,
+      "basic_da": 1604371,
+      "hra_received": 592720,
+      "rent_paid": 504075,
+      "metro_city": true,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 0,
+      "home_loan_interest": 300000,
+      "age": 80,
+      "health_self": 0,
+      "health_parents": 60000,
+      "parents_senior": false
+    },
+    "expected_old": 488180,
+    "expected_new": 590200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_145",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 1024385,
+      "hra_received": 396536,
+      "rent_paid": 478282,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 300000,
+      "age": 80,
+      "health_self": 30000,
+      "health_parents": 50000,
+      "parents_senior": false
+    },
+    "expected_old": 141180,
+    "expected_new": 278200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_146",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 800000,
+      "basic_da": 306942,
+      "hra_received": 119756,
+      "rent_paid": 145870,
+      "metro_city": false,
+      "sec_80c": 200000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 0,
+      "age": 80,
+      "health_self": 30000,
+      "health_parents": 25000,
+      "parents_senior": true
+    },
+    "expected_old": 0,
+    "expected_new": 23400,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_147",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1500000,
+      "basic_da": 809024,
+      "hra_received": 297775,
+      "rent_paid": 437002,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 0,
+      "home_loan_interest": 100000,
+      "age": 28,
+      "health_self": 25000,
+      "health_parents": 60000,
+      "parents_senior": true
+    },
+    "expected_old": 81060,
+    "expected_new": 130000,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_148",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1200000,
+      "basic_da": 608619,
+      "hra_received": 261207,
+      "rent_paid": 210223,
+      "metro_city": false,
+      "sec_80c": 0,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 100000,
+      "age": 80,
+      "health_self": 25000,
+      "health_parents": 50000,
+      "parents_senior": false
+    },
+    "expected_old": 62530,
+    "expected_new": 71500,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_149",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1500000,
+      "basic_da": 662967,
+      "hra_received": 269286,
+      "rent_paid": 207344,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 300000,
+      "age": 65,
+      "health_self": 30000,
+      "health_parents": 50000,
+      "parents_senior": true
+    },
+    "expected_old": 78820,
+    "expected_new": 130000,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_150",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1200000,
+      "basic_da": 473597,
+      "hra_received": 212444,
+      "rent_paid": 272526,
+      "metro_city": false,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 300000,
+      "age": 65,
+      "health_self": 30000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 42760,
+    "expected_new": 71500,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_151",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1500000,
+      "basic_da": 552367,
+      "hra_received": 185533,
+      "rent_paid": 59144,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 0,
+      "home_loan_interest": 0,
+      "age": 85,
+      "health_self": 30000,
+      "health_parents": 25000,
+      "parents_senior": false
+    },
+    "expected_old": 179220,
+    "expected_new": 130000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_152",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 661552,
+      "hra_received": 200088,
+      "rent_paid": 160207,
+      "metro_city": true,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 25000,
+      "home_loan_interest": 0,
+      "age": 65,
+      "health_self": 50000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 311260,
+    "expected_new": 278200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_153",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 895047,
+      "hra_received": 371806,
+      "rent_paid": 396707,
+      "metro_city": true,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 0,
+      "home_loan_interest": 100000,
+      "age": 28,
+      "health_self": 50000,
+      "health_parents": 25000,
+      "parents_senior": false
+    },
+    "expected_old": 223950,
+    "expected_new": 278200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_154",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 870308,
+      "hra_received": 338153,
+      "rent_paid": 461335,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 0,
+      "home_loan_interest": 0,
+      "age": 60,
+      "health_self": 25000,
+      "health_parents": 50000,
+      "parents_senior": false
+    },
+    "expected_old": 242900,
+    "expected_new": 278200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_155",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1200000,
+      "basic_da": 446351,
+      "hra_received": 183181,
+      "rent_paid": 79569,
+      "metro_city": true,
+      "sec_80c": 200000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 0,
+      "age": 60,
+      "health_self": 30000,
+      "health_parents": 50000,
+      "parents_senior": false
+    },
+    "expected_old": 85300,
+    "expected_new": 71500,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_156",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 642707,
+      "hra_received": 222816,
+      "rent_paid": 149286,
+      "metro_city": false,
+      "sec_80c": 50000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 0,
+      "age": 85,
+      "health_self": 25000,
+      "health_parents": 25000,
+      "parents_senior": false
+    },
+    "expected_old": 327080,
+    "expected_new": 278200,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_157",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1200000,
+      "basic_da": 385707,
+      "hra_received": 128511,
+      "rent_paid": 97894,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 0,
+      "age": 80,
+      "health_self": 30000,
+      "health_parents": 60000,
+      "parents_senior": false
+    },
+    "expected_old": 69820,
+    "expected_new": 71500,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_158",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 3000000,
+      "basic_da": 1385983,
+      "hra_received": 537140,
+      "rent_paid": 553032,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 0,
+      "age": 28,
+      "health_self": 25000,
+      "health_parents": 0,
+      "parents_senior": false
+    },
+    "expected_old": 525900,
+    "expected_new": 590200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_159",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1500000,
+      "basic_da": 709311,
+      "hra_received": 321049,
+      "rent_paid": 133063,
+      "metro_city": false,
+      "sec_80c": 200000,
+      "nps_80ccd1b": 50000,
+      "home_loan_interest": 100000,
+      "age": 85,
+      "health_self": 50000,
+      "health_parents": 60000,
+      "parents_senior": false
+    },
+    "expected_old": 108020,
+    "expected_new": 130000,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_160",
+    "category": "deductions_and_age",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2000000,
+      "basic_da": 808776,
+      "hra_received": 296547,
+      "rent_paid": 351871,
+      "metro_city": false,
+      "sec_80c": 150000,
+      "nps_80ccd1b": 75000,
+      "home_loan_interest": 300000,
+      "age": 65,
+      "health_self": 50000,
+      "health_parents": 0,
+      "parents_senior": true
+    },
+    "expected_old": 185850,
+    "expected_new": 278200,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_161",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1259597,
+      "sec_80c": 150000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 135600,
+    "expected_new": 80800,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_162",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2220159,
+      "sec_80c": 100000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 388490,
+    "expected_new": 346890,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_163",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2423208,
+      "sec_80c": 150000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 451840,
+    "expected_new": 410240,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_164",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 713677,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_165",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2186385,
+      "sec_80c": 150000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 424750,
+    "expected_new": 336350,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_166",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1026899,
+      "sec_80c": 100000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 60200,
+    "expected_new": 47000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_167",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1518823,
+      "sec_80c": 150000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 216470,
+    "expected_new": 133920,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_168",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 660570,
+      "sec_80c": 100000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_169",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 932150,
+      "sec_80c": 100000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 30090,
+    "expected_new": 37140,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_170",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1455619,
+      "sec_80c": 100000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 212350,
+    "expected_new": 120770,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_171",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1567727,
+      "sec_80c": 100000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 200530,
+    "expected_new": 144090,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_172",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2102833,
+      "sec_80c": 150000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 351880,
+    "expected_new": 310280,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_173",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2350551,
+      "sec_80c": 150000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 475970,
+    "expected_new": 387570,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_174",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1557963,
+      "sec_80c": 100000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 197480,
+    "expected_new": 142060,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_175",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 999751,
+      "sec_80c": 100000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 85750,
+    "expected_new": 44170,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_176",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1179341,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 71100,
+    "expected_new": 68280,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_177",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1160302,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 67140,
+    "expected_new": 65310,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_178",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1226129,
+      "sec_80c": 150000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 125150,
+    "expected_new": 75580,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_179",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1536490,
+      "sec_80c": 150000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 175190,
+    "expected_new": 137590,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_180",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1297190,
+      "sec_80c": 150000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 106020,
+    "expected_new": 87820,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_181",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1274819,
+      "sec_80c": 100000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 101360,
+    "expected_new": 83170,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_182",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1403151,
+      "sec_80c": 150000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 180380,
+    "expected_new": 109860,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_183",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1267291,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 89400,
+    "expected_new": 82000,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_184",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2301656,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 398320,
+    "expected_new": 372320,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_185",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2261796,
+      "sec_80c": 100000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 417080,
+    "expected_new": 359880,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_186",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 677638,
+      "sec_80c": 150000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_187",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2433319,
+      "sec_80c": 100000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 455000,
+    "expected_new": 413400,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_188",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1558248,
+      "sec_80c": 100000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 197570,
+    "expected_new": 142120,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_189",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2426505,
+      "sec_80c": 100000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 515270,
+    "expected_new": 411270,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_190",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1584600,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 174600,
+    "expected_new": 148600,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_191",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2052715,
+      "sec_80c": 100000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 351850,
+    "expected_new": 294650,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_192",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2387516,
+      "sec_80c": 150000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 440710,
+    "expected_new": 399110,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_193",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1914520,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 277530,
+    "expected_new": 251530,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_194",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 675298,
+      "sec_80c": 100000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 18260,
+    "expected_new": 0,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_195",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1923667,
+      "sec_80c": 150000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 342790,
+    "expected_new": 254390,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_196",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2166083,
+      "sec_80c": 150000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 418420,
+    "expected_new": 330020,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_197",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2194637,
+      "sec_80c": 100000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 396130,
+    "expected_new": 338930,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_198",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 948919,
+      "sec_80c": 150000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 64780,
+    "expected_new": 38890,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_199",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 696457,
+      "sec_80c": 100000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_200",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1351759,
+      "sec_80c": 150000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 164350,
+    "expected_new": 99170,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_201",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1112132,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 57120,
+    "expected_new": 57790,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_202",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2029842,
+      "sec_80c": 100000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 391510,
+    "expected_new": 287510,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_203",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 765621,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_204",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2032640,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 314380,
+    "expected_new": 288380,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_205",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 900142,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 13030,
+    "expected_new": 33820,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_206",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1132638,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 61390,
+    "expected_new": 60990,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_207",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 619716,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_208",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1746302,
+      "sec_80c": 100000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 256250,
+    "expected_new": 199050,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_209",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1324716,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 101340,
+    "expected_new": 93540,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_210",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1489867,
+      "sec_80c": 150000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 160640,
+    "expected_new": 127890,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_211",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2372737,
+      "sec_80c": 100000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 451700,
+    "expected_new": 394500,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_212",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2389583,
+      "sec_80c": 100000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 503750,
+    "expected_new": 399750,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_213",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1399791,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 116960,
+    "expected_new": 109160,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_214",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1220516,
+      "sec_80c": 150000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 123400,
+    "expected_new": 74700,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_215",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2340741,
+      "sec_80c": 150000,
+      "home_loan_interest": 150000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 426110,
+    "expected_new": 384510,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_216",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 616995,
+      "sec_80c": 100000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 0,
+    "expected_new": 0,
+    "expected_recommended": "tie"
+  },
+  {
+    "id": "TC_217",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2162748,
+      "sec_80c": 150000,
+      "home_loan_interest": 0,
+      "apply_288_rounding": true
+    },
+    "expected_old": 417380,
+    "expected_new": 328980,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_218",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 1873114,
+      "sec_80c": 100000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 280210,
+    "expected_new": 238610,
+    "expected_recommended": "new"
+  },
+  {
+    "id": "TC_219",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 998748,
+      "sec_80c": 150000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 33540,
+    "expected_new": 44070,
+    "expected_recommended": "old"
+  },
+  {
+    "id": "TC_220",
+    "category": "crossover_and_rounding",
+    "verify_official_calculator": false,
+    "input": {
+      "gross_salary": 2184587,
+      "sec_80c": 100000,
+      "home_loan_interest": 200000,
+      "apply_288_rounding": true
+    },
+    "expected_old": 377390,
+    "expected_new": 335790,
+    "expected_recommended": "new"
+  }
+]

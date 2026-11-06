@@ -1,0 +1,4 @@
+.gemini_cache.json
+__pycache__/
+.pytest_cache/
+impl_c_compiled/compiled/*.candidate.json
