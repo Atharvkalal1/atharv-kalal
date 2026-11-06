@@ -1,0 +1,386 @@
+{
+  "fy": "2025-26",
+  "regimes": {
+    "new": {
+      "steps": [
+        {
+          "id": "std",
+          "op": "expr",
+          "expr": "min(75000, gross_salary)",
+          "clause": "R-STD-NEW",
+          "label": "Standard deduction"
+        },
+        {
+          "id": "raw_taxable",
+          "op": "expr",
+          "expr": "max(0, gross_salary - std)",
+          "clause": "R-NEW-BASE",
+          "label": "Raw taxable income"
+        },
+        {
+          "id": "taxable",
+          "op": "expr",
+          "expr": "round_to_10(raw_taxable) if apply_288_rounding else raw_taxable",
+          "clause": "R-288A",
+          "label": "Taxable income (s.288A)"
+        },
+        {
+          "id": "slab_tax",
+          "op": "slabs",
+          "on": "taxable",
+          "tables": [
+            {
+              "when": null,
+              "table": [
+                [
+                  400000,
+                  0
+                ],
+                [
+                  800000,
+                  5
+                ],
+                [
+                  1200000,
+                  10
+                ],
+                [
+                  1600000,
+                  15
+                ],
+                [
+                  2000000,
+                  20
+                ],
+                [
+                  2400000,
+                  25
+                ],
+                [
+                  null,
+                  30
+                ]
+              ]
+            }
+          ],
+          "clause": "R-NEW-SLABS",
+          "label": "Tax on slabs"
+        },
+        {
+          "id": "rebate",
+          "out": "after_rebate",
+          "op": "rebate",
+          "income": "taxable",
+          "tax": "slab_tax",
+          "limit": 1200000,
+          "max": 60000,
+          "marginal_relief": true,
+          "clause": "R-REBATE-NEW",
+          "label": "s.87A rebate"
+        },
+        {
+          "id": "surcharge_calc",
+          "op": "surcharge",
+          "income": "taxable",
+          "tax": "after_rebate",
+          "slabs": "slab_tax",
+          "thresholds": [
+            [
+              5000000,
+              10
+            ],
+            [
+              10000000,
+              15
+            ],
+            [
+              20000000,
+              25
+            ],
+            [
+              50000000,
+              37
+            ]
+          ],
+          "max_rate": 25,
+          "clause": "R-SURCHARGE",
+          "label": "Surcharge"
+        },
+        {
+          "id": "cess",
+          "op": "cess",
+          "base": "after_rebate + surcharge_calc",
+          "pct": 4,
+          "clause": "R-CESS",
+          "label": "Health & education cess"
+        },
+        {
+          "id": "raw_total",
+          "op": "expr",
+          "expr": "after_rebate + surcharge_calc + cess",
+          "clause": "R-TOTAL",
+          "label": "Raw total tax"
+        },
+        {
+          "id": "total",
+          "op": "expr",
+          "expr": "round_to_10(raw_total) if apply_288_rounding else raw_total",
+          "clause": "R-288B",
+          "label": "Total tax (s.288B)"
+        }
+      ],
+      "outputs": {
+        "taxable_income": "taxable",
+        "raw_taxable_income": "raw_taxable",
+        "tax_on_slabs": "slab_tax",
+        "rebate_87a": "rebate",
+        "raw_surcharge": "surcharge_calc",
+        "surcharge_marginal_relief": "surcharge_calc",
+        "surcharge": "surcharge_calc",
+        "cess": "cess",
+        "raw_total_tax": "raw_total",
+        "total_tax": "total"
+      }
+    },
+    "old": {
+      "steps": [
+        {
+          "id": "hra_ex",
+          "op": "expr",
+          "expr": "round_rupee(min(hra_received, max(0, rent_paid - hra_salary_base*10/100), hra_salary_base*(50 if metro_city else 40)/100)) if (hra_received > 0 and rent_paid > 0) else 0",
+          "clause": "R-HRA",
+          "label": "HRA exemption"
+        },
+        {
+          "id": "sal_after_hra",
+          "op": "expr",
+          "expr": "gross_salary - hra_ex",
+          "clause": "R-STD-OLD",
+          "label": "Salary after HRA exemption",
+          "trace": false
+        },
+        {
+          "id": "std",
+          "op": "expr",
+          "expr": "min(50000, sal_after_hra)",
+          "clause": "R-STD-OLD",
+          "label": "Standard deduction"
+        },
+        {
+          "id": "hp",
+          "op": "expr",
+          "expr": "min(home_loan_interest, 200000)",
+          "clause": "R-24B",
+          "label": "Home-loan interest (self-occupied)"
+        },
+        {
+          "id": "d80c",
+          "op": "expr",
+          "expr": "min(sec_80c, 150000)",
+          "clause": "R-80C",
+          "label": "80C"
+        },
+        {
+          "id": "d80ccd",
+          "op": "expr",
+          "expr": "min(nps_80ccd1b, 50000)",
+          "clause": "R-80CCD1B",
+          "label": "80CCD(1B)"
+        },
+        {
+          "id": "d80d_self",
+          "op": "expr",
+          "expr": "min(health_self, 50000 if age >= 60 else 25000)",
+          "clause": "R-80D-SELF",
+          "label": "80D self/family"
+        },
+        {
+          "id": "d80d_par",
+          "op": "expr",
+          "expr": "min(health_parents, 50000 if parents_senior else 25000)",
+          "clause": "R-80D-PARENTS",
+          "label": "80D parents"
+        },
+        {
+          "id": "raw_taxable",
+          "op": "expr",
+          "expr": "max(0, sal_after_hra - std - hp - d80c - d80ccd - d80d_self - d80d_par)",
+          "clause": "R-OLD-TAXABLE",
+          "label": "Taxable income before s.288A"
+        },
+        {
+          "id": "taxable",
+          "op": "expr",
+          "expr": "round_to_10(raw_taxable) if apply_288_rounding else raw_taxable",
+          "clause": "R-288A",
+          "label": "Taxable income after s.288A rounding"
+        },
+        {
+          "id": "slab_tax",
+          "op": "slabs",
+          "clause": "R-OLD-SLABS",
+          "label": "Tax on slabs",
+          "tables": [
+            {
+              "when": "age >= 80",
+              "table": [
+                [
+                  500000,
+                  0
+                ],
+                [
+                  1000000,
+                  20
+                ],
+                [
+                  null,
+                  30
+                ]
+              ]
+            },
+            {
+              "when": "age >= 60",
+              "table": [
+                [
+                  300000,
+                  0
+                ],
+                [
+                  500000,
+                  5
+                ],
+                [
+                  1000000,
+                  20
+                ],
+                [
+                  null,
+                  30
+                ]
+              ]
+            },
+            {
+              "when": null,
+              "table": [
+                [
+                  250000,
+                  0
+                ],
+                [
+                  500000,
+                  5
+                ],
+                [
+                  1000000,
+                  20
+                ],
+                [
+                  null,
+                  30
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "rebate",
+          "op": "rebate",
+          "out": "tax_after_rebate",
+          "income": "taxable",
+          "tax": "slab_tax",
+          "limit": 500000,
+          "max": 12500,
+          "marginal_relief": false,
+          "clause": "R-REBATE-OLD",
+          "label": "s.87A rebate (incl. marginal relief)"
+        },
+        {
+          "id": "raw_surcharge",
+          "op": "surcharge",
+          "income": "taxable",
+          "tax": "tax_after_rebate",
+          "slabs": "slab_tax",
+          "thresholds": [
+            [
+              5000000,
+              10
+            ],
+            [
+              10000000,
+              15
+            ],
+            [
+              20000000,
+              25
+            ],
+            [
+              50000000,
+              37
+            ]
+          ],
+          "max_rate": 37,
+          "clause": "R-SURCHARGE",
+          "label": "Surcharge before marginal relief"
+        },
+        {
+          "id": "surcharge_marginal_relief",
+          "op": "expr",
+          "expr": "raw_surcharge__relief",
+          "clause": "R-MARGINAL-RELIEF",
+          "label": "Surcharge marginal relief"
+        },
+        {
+          "id": "surcharge",
+          "op": "expr",
+          "expr": "raw_surcharge - surcharge_marginal_relief",
+          "clause": "R-SURCHARGE",
+          "label": "Net surcharge"
+        },
+        {
+          "id": "cess",
+          "op": "cess",
+          "base": "tax_after_rebate + surcharge",
+          "pct": 4,
+          "clause": "R-CESS",
+          "label": "Health & education cess"
+        },
+        {
+          "id": "raw_total",
+          "op": "expr",
+          "expr": "tax_after_rebate + surcharge + cess",
+          "clause": "R-TOTAL",
+          "label": "Total tax before s.288B rounding"
+        },
+        {
+          "id": "rounding_288b",
+          "op": "expr",
+          "expr": "round_to_10(raw_total) - raw_total if apply_288_rounding else 0",
+          "clause": "R-288B",
+          "label": "s.288B rounding to nearest Rs 10",
+          "trace": "nonzero"
+        },
+        {
+          "id": "total",
+          "op": "expr",
+          "expr": "raw_total + rounding_288b",
+          "clause": "R-TOTAL/R-288B",
+          "label": "Total tax"
+        }
+      ],
+      "outputs": {
+        "gross_salary": "gross_salary",
+        "raw_taxable_income": "raw_taxable",
+        "taxable_income": "taxable",
+        "tax_on_slabs": "slab_tax",
+        "rebate_87a": "rebate",
+        "raw_surcharge": "raw_surcharge",
+        "surcharge_marginal_relief": "surcharge_marginal_relief",
+        "surcharge": "surcharge",
+        "cess": "cess",
+        "raw_total_tax": "raw_total",
+        "total_tax": "total"
+      },
+      "fy": "2025-26"
+    }
+  }
+}

@@ -1,21 +1,6 @@
 import copy, io, json, os, random, urllib.error
 from pathlib import Path
-try:
-    import pytest
-except ImportError:
-    import types
-    pytest = types.ModuleType('pytest')
-    pytest.mark = types.SimpleNamespace(
-        parametrize=lambda *a, **k: (lambda f: f),
-        skipif=lambda *a, **k: (lambda f: f)
-    )
-    class RaisesContext:
-        def __init__(self, exc): self.exc = exc
-        def __enter__(self): return self
-        def __exit__(self, exc_type, exc_val, tb): return exc_type is not None and issubclass(exc_type, self.exc)
-    pytest.raises = lambda exc: RaisesContext(exc)
-    pytest.warns = lambda exc: RaisesContext(exc)
-    pytest.approx = lambda x: x
+import pytest
 from project_a import gemini_client as G
 from project_a.common import TaxInput, round_to_10, load_valid_clauses, verify_traceability
 from project_a.impl_a_rules import engine as A
@@ -144,10 +129,11 @@ def test_auditor_catches_tampering():
 
 
 def test_unknown_fy_fails_loudly_not_silently():
+    # a financial year with no reviewed rules must raise, never fall back to another year's numbers
     with pytest.raises(ValueError):
-        A.compute(TaxInput(gross_salary=1_000_000, fy="2025-26"))
+        A.compute(TaxInput(gross_salary=1_000_000, fy="2030-31"))
     with pytest.raises(ValueError):
-        C.compute(TaxInput(gross_salary=1_000_000, fy="2025-26"))
+        C.compute(TaxInput(gross_salary=1_000_000, fy="2030-31"))
 
 
 # ------------------------------------------------------------------ impl (b) with a faked Gemini
@@ -229,9 +215,83 @@ def test_200_case_suite_full_agreement(name, fn):
     """File format: [{"id": str, "input": {TaxInput kwargs}, "expected_old": int, "expected_new": int}, ...]"""
     cases = json.loads(_DATA.read_text())
     assert len(cases) >= 200
+    assert all(c['expected_old'] is not None for c in cases)
     wrong = []
     for c in cases:
         r = fn(TaxInput(**c["input"]))
         if (r["old"]["total_tax"], r["new"]["total_tax"]) != (c["expected_old"], c["expected_new"]):
             wrong.append(c.get("id"))
     assert not wrong, f"{len(wrong)}/{len(cases)} disagree: {wrong[:10]}"
+
+
+
+# ------------------------------------------------------------------ independent oracle + FY2025-26 anchors
+from project_a.tests.oracle import oracle  # noqa: E402
+
+# hand-derivable anchors (not produced by any code under test)
+ANCHORS = [  # (fy, gross, expected_new_total)
+    ("2024-25", 1_075_000, 52_000),   # taxable 10L: 20,000 + 30,000 = 50,000 + 4% cess
+    ("2025-26", 1_275_000, 0),        # taxable exactly 12L -> full 87A rebate (60,000)
+    ("2025-26", 1_300_000, 26_000),   # taxable 12.25L: slab 63,750 but marginal relief caps tax at 25,000; +4% cess
+    ("2025-26", 2_475_000, 312_000),  # taxable 24L: 20k+40k+60k+80k+100k = 3,00,000 + 4% cess
+    ("2025-26", 875_000, 0),          # taxable 8L -> 20,000 tax, fully rebated
+]
+
+
+@pytest.mark.parametrize("name,fn", IMPLS)
+@pytest.mark.parametrize("fy,gross,new", ANCHORS)
+def test_hand_derived_anchors(name, fn, fy, gross, new):
+    assert fn(TaxInput(gross_salary=gross, fy=fy))["new"]["total_tax"] == new
+
+
+def test_a_and_c_match_independent_oracle_on_random_inputs_both_fys():
+    rnd = random.Random(2026)
+    for fy in ("2024-25", "2025-26"):
+        for _ in range(1500):
+            g = int(rnd.choice([3e5, 7e5, 7.75e5, 1.2e6, 1.275e6, 2.5e6, 5.0e6, 5.1e6, 1e7, 2e7, 5e7, 6e7]) + rnd.randint(-3000, 60000))
+            b = g // 2
+            d = dict(gross_salary=g, basic_da=b, hra_received=rnd.randint(0, b // 2), rent_paid=rnd.randint(0, b),
+                     metro_city=rnd.random() < .5, age=rnd.choice([25, 60, 82]), sec_80c=rnd.randint(0, 200_000),
+                     nps_80ccd1b=rnd.randint(0, 60_000), health_self=rnd.randint(0, 60_000),
+                     health_parents=rnd.randint(0, 60_000), parents_senior=rnd.random() < .5,
+                     home_loan_interest=rnd.randint(0, 250_000), apply_288_rounding=rnd.random() < .8)
+            exp = oracle(d, fy)
+            for fn in (A.compute, C.compute):
+                r = fn(TaxInput(fy=fy, **d))
+                assert (r["old"]["total_tax"], r["new"]["total_tax"]) == exp, (fy, d)
+                assert r["old"]["fully_traceable"] and r["new"]["fully_traceable"], (fy, d)
+
+
+def test_fy2526_is_fully_traceable_not_just_correct():
+    for fn in (A.compute, C.compute):
+        r = fn(TaxInput(gross_salary=1_300_000, fy="2025-26"))
+        assert r["new"]["fully_traceable"], r["new"]["trace_errors"]
+
+
+# ------------------------------------------------------------------ parser
+from project_a.parser import parse_plain_language, evaluate_parser  # noqa: E402
+
+
+def test_parser_never_guesses_missing_hra_or_rent_period():
+    for t in ("Salary 18 LPA, rent 25000 per month Mumbai.", "Gross 30 LPA, basic 15 LPA, rent 50000, HRA 6 lakh, Delhi."):
+        assert parse_plain_language(t)["status"] == "needs_clarification"
+
+
+def test_parser_exact_decimal_amounts():
+    r = parse_plain_language("Age 29. Gross 11.5 lakh, basic 5.75 lakh, no rent, HRA nahi milta. 80C 2.3 lakh.")
+    assert r["status"] == "ok" and r["extracted"]["sec_80c"] == 230_000 and r["extracted"]["basic_da"] == 575_000
+
+
+def test_parser_labelled_sets_have_no_false_compute():
+    res = evaluate_parser(verbose=False)
+    for fn, a in res.items():
+        assert a["false_compute"] == 0, fn          # never compute when we should have asked
+        assert a["fields_exact"] == a["compute_n"], fn
+
+
+def test_parser_llm_path_is_gated_by_rules(monkeypatch):
+    from project_a import gemini_client as GC
+    # a hallucinating "LLM" that returns HRA/basic for a text that never stated them must still be stopped by the gate
+    bad = {"gross": 1_800_000, "rent_amount": 25_000, "rent_period": "monthly", "city": "metro", "hra": None, "basic": None}
+    monkeypatch.setattr(GC, "generate_json", lambda *a, **k: (bad, {}))
+    assert parse_plain_language("whatever", use_llm=True)["status"] == "needs_clarification"

@@ -1,0 +1,81 @@
+{
+ "generated_with": {
+  "cases": 368,
+  "llm_key_present": false
+ },
+ "a_hand_coded": {
+  "impl": "(a) hand-coded rules",
+  "cases": 368,
+  "rupee_exact_both_regimes": 368,
+  "rupee_exact_old": 368,
+  "rupee_exact_new": 368,
+  "accuracy_pct": 100.0,
+  "traceable": 368,
+  "traceable_pct": 100.0,
+  "nondeterministic_cases": 0,
+  "repeats": 10,
+  "latency_ms_p50": 0.285,
+  "latency_ms_p95": 0.438,
+  "cost_per_1k_usd": 0.0,
+  "by_category": {
+   "reference": "35/35",
+   "boundary_sweep": "104/104",
+   "deductions_and_age": "70/70",
+   "rounding": "40/40",
+   "fy2526_boundary": "36/36",
+   "fy2526_marginal_relief": "14/14",
+   "fy2526_surcharge": "39/39",
+   "fy2526_deductions": "30/30"
+  }
+ },
+ "c_llm_compiled": {
+  "impl": "(c) LLM-compiled rules (reviewed DSL)",
+  "cases": 368,
+  "rupee_exact_both_regimes": 368,
+  "rupee_exact_old": 368,
+  "rupee_exact_new": 368,
+  "accuracy_pct": 100.0,
+  "traceable": 368,
+  "traceable_pct": 100.0,
+  "nondeterministic_cases": 0,
+  "repeats": 10,
+  "latency_ms_p50": 0.746,
+  "latency_ms_p95": 0.857,
+  "cost_per_1k_usd": 0.0,
+  "by_category": {
+   "reference": "35/35",
+   "boundary_sweep": "104/104",
+   "deductions_and_age": "70/70",
+   "rounding": "40/40",
+   "fy2526_boundary": "36/36",
+   "fy2526_marginal_relief": "14/14",
+   "fy2526_surcharge": "39/39",
+   "fy2526_deductions": "30/30"
+  }
+ },
+ "b_llm_query_time": {
+  "impl": "(b) LLM at query time",
+  "status": "NOT MEASURED: set GEMINI_API_KEY (free tier is enough) and rerun",
+  "note": "No numbers are reported for (b) without a live run. Prompt/validators are unit-tested with a faked client."
+ },
+ "parser": {
+  "plain_language_50.json": {
+   "n": 50,
+   "action_ok": 50,
+   "false_compute": 0,
+   "false_clarify": 0,
+   "compute_n": 17,
+   "fields_exact": 17,
+   "age_ok": 3
+  },
+  "plain_language_holdout_30.json": {
+   "n": 30,
+   "action_ok": 30,
+   "false_compute": 0,
+   "false_clarify": 0,
+   "compute_n": 15,
+   "fields_exact": 15,
+   "age_ok": 3
+  }
+ }
+}

@@ -1,61 +1,50 @@
-"""Task 1: Profile NYC 311 2023 raw data and document real anomalies."""
-import json
-from pathlib import Path
+"""Task 1: profile the raw data for pre-existing quality problems (counts + examples). Works on real data when
+data/nyc311_2023.jsonl exists, else on the SYNTHETIC stand-in (whose 'findings' are seeded and say nothing about real NYC 311)."""
+import json, re
+from collections import Counter
+from project_b.common import load, parse_ts, zip_borough, NYC_BBOX, COLUMNS, ISO
+from project_b.detectors.rules import PHONE, EMAIL, SSN
 
-DATA_FILE = Path(__file__).parent / "data" / "sample_nyc311_2023.json"
 
-def profile_raw_data(data_path=None):
-    p = Path(data_path) if data_path else DATA_FILE
-    records = json.loads(p.read_text())
-    
-    total = len(records)
-    issues = {
-        "null_closed_date_open_tickets": 0,
-        "null_or_zero_coordinates": 0,
-        "invalid_zip_codes": 0,
-        "descriptor_typos_or_unmapped": 0,
-        "lat_lon_outside_nyc": 0
-    }
-    examples = {}
-    
-    for r in records:
-        # Check coordinates
-        lat, lon = r.get("latitude"), r.get("longitude")
-        if lat is None or lon is None or (lat == 0 and lon == 0):
-            issues["null_or_zero_coordinates"] += 1
-            if "null_or_zero_coordinates" not in examples:
-                examples["null_or_zero_coordinates"] = {"unique_key": r.get("unique_key"), "lat": lat, "lon": lon}
-        elif not (40.45 <= lat <= 40.95 and -74.30 <= lon <= -73.65):
-            issues["lat_lon_outside_nyc"] += 1
-            if "lat_lon_outside_nyc" not in examples:
-                examples["lat_lon_outside_nyc"] = {"unique_key": r.get("unique_key"), "lat": lat, "lon": lon}
-                
-        # Check null closed date
-        if r.get("closed_date") is None:
-            issues["null_closed_date_open_tickets"] += 1
-            if "null_closed_date_open_tickets" not in examples:
-                examples["null_closed_date_open_tickets"] = {"unique_key": r.get("unique_key"), "status": r.get("status")}
-                
-        # Check zip codes
-        zip_str = str(r.get("incident_zip", ""))
-        if not (zip_str.startswith("10") or zip_str.startswith("11")):
-            issues["invalid_zip_codes"] += 1
-            if "invalid_zip_codes" not in examples:
-                examples["invalid_zip_codes"] = {"unique_key": r.get("unique_key"), "zip": zip_str, "borough": r.get("borough")}
-                
-        # Check descriptor
-        if "typpo" in str(r.get("descriptor", "")).lower() or "unknwn" in str(r.get("descriptor", "")).lower():
-            issues["descriptor_typos_or_unmapped"] += 1
-            if "descriptor_typos_or_unmapped" not in examples:
-                examples["descriptor_typos_or_unmapped"] = {"unique_key": r.get("unique_key"), "desc": r.get("descriptor")}
+def profile_raw_data(write=True):
+    rows, src = load(); n = len(rows); P, ex = Counter(), {}
+    def hit(k, r, **kw): P[k] += 1; ex.setdefault(k, kw or {"unique_key": r.get("unique_key")})
+    keys = Counter(r["unique_key"] for r in rows)
+    for r in rows:
+        a, b = parse_ts(r.get("created_date")), parse_ts(r.get("closed_date"))
+        if a and b and b < a: hit("closed_before_created", r, created=r["created_date"], closed=r["closed_date"])
+        if r.get("status") == "Closed" and not r.get("closed_date"): hit("status_closed_but_no_closed_date", r)
+        if r.get("status") != "Closed" and r.get("closed_date"): hit("not_closed_but_has_closed_date", r, status=r.get("status"))
+        if a and a.year != 2023: hit("created_outside_2023", r, created=r["created_date"])
+        if b and a and (b - a).days > 365: hit("closure_over_a_year_after_creation", r, created=r["created_date"], closed=r["closed_date"])
+        la, lo = r.get("latitude"), r.get("longitude")
+        if la is None or lo is None: hit("missing_coordinates", r)
+        elif la == 0 or lo == 0: hit("zero_coordinates", r, lat=la, lon=lo)
+        elif not (NYC_BBOX[0] <= la <= NYC_BBOX[1] and NYC_BBOX[2] <= lo <= NYC_BBOX[3]): hit("coordinates_outside_nyc_bbox", r, lat=la, lon=lo)
+        z = r.get("incident_zip")
+        if z is None: hit("missing_zip", r)
+        elif not re.fullmatch(r"\d{5}(-\d{4})?", str(z)): hit("malformed_zip", r, zip=z)
+        elif r.get("borough") not in (None, "Unspecified") and zip_borough(z) not in (None, str(r["borough"]).upper()): hit("zip_borough_mismatch", r, zip=z, borough=r["borough"])
+        if r.get("borough") in (None, "Unspecified"): hit("borough_unspecified_or_null", r)
+        if not r.get("resolution_description") and r.get("status") == "Closed": hit("closed_without_resolution_text", r)
+        for f in ("descriptor", "resolution_description"):
+            t = r.get(f) or ""
+            if PHONE.search(t) or EMAIL.search(t) or SSN.search(t): hit(f"pii_like_in_{f}", r, text=t[:60])
+        if keys[r["unique_key"]] > 1: hit("duplicate_unique_key", r)
+    ws = Counter(r.get("complaint_type") for r in rows if r.get("complaint_type") and (r["complaint_type"] != r["complaint_type"].strip()))
+    case_var = Counter(); low = {}
+    for r in rows:
+        c = r.get("complaint_type")
+        if c: low.setdefault(c.lower().strip(), set()).add(c)
+    variants = {k: sorted(v) for k, v in low.items() if len(v) > 1}
+    nulls = {c: round(100 * sum(r.get(c) is None for r in rows) / n, 2) for c in COLUMNS}
+    out = {"data_source": src, "rows": n, "issues": {k: {"count": v, "pct": round(100 * v / n, 3), "example": ex[k]} for k, v in P.most_common()},
+           "category_spelling_variants": variants, "null_pct_by_column": nulls}
+    print(f"=== PROFILE | {src} | {n:,} rows ===")
+    for k, v in out["issues"].items(): print(f"  {k}: {v['count']} ({v['pct']}%) e.g. {v['example']}")
+    if write: (__import__('pathlib').Path(__file__).parent / "results" / "profile.json").write_text(json.dumps(out, indent=1))
+    return out
 
-    print(f"=== NYC 311 2023 DATA PROFILE ({total:,} rows) ===")
-    for k, count in issues.items():
-        pct = count / total * 100
-        ex = examples.get(k, {})
-        print(f"  • {k}: {count} occurrences ({pct:.2f}%) | Example: {ex}")
-        
-    return {"total_rows": total, "issues": issues, "examples": examples}
 
 if __name__ == "__main__":
     profile_raw_data()

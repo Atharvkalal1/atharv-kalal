@@ -1,0 +1,51 @@
+{
+ "data_source": "SYNTHETIC (run fetch_nyc311.py for real data)",
+ "rows": 12000,
+ "issues": {
+  "missing_coordinates": {
+   "count": 378,
+   "pct": 3.15,
+   "example": {
+    "unique_key": 58060610
+   }
+  },
+  "borough_unspecified_or_null": {
+   "count": 261,
+   "pct": 2.175,
+   "example": {
+    "unique_key": 58036302
+   }
+  },
+  "missing_zip": {
+   "count": 102,
+   "pct": 0.85,
+   "example": {
+    "unique_key": 58050976
+   }
+  },
+  "closed_before_created": {
+   "count": 42,
+   "pct": 0.35,
+   "example": {
+    "created": "2023-01-06T23:41:38.000",
+    "closed": "2023-01-06T22:38:30.000"
+   }
+  }
+ },
+ "category_spelling_variants": {},
+ "null_pct_by_column": {
+  "unique_key": 0.0,
+  "created_date": 0.0,
+  "closed_date": 11.36,
+  "agency": 0.0,
+  "agency_name": 0.0,
+  "complaint_type": 0.0,
+  "descriptor": 0.0,
+  "incident_zip": 0.85,
+  "borough": 0.0,
+  "status": 0.0,
+  "resolution_description": 3.92,
+  "latitude": 3.15,
+  "longitude": 3.15
+ }
+}

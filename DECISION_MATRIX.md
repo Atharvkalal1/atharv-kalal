@@ -1,23 +1,19 @@
-# Decision Matrix: Rules, Statistics, LLMs, or Hybrid
-
-This matrix maps every component and data-quality check across Project A and Project B to its chosen architecture, justified by empirical measurements of correctness, latency, cost, and auditability.
-
-| System / Component | Specific Check or Task | Architecture Choice | Key Justifying Measurement | Trade-offs & Operational Rationale |
-| :--- | :--- | :--- | :--- | :--- |
-| **Project A: Parser** | Extracting numbers from English / Hinglish | **Hybrid (Rule + LLM)** | 90.0% accuracy across 50 colloquial prompts with 0 hallucinations. | Colloquial language needs LLM semantic flexibility, but deterministic rule guards prevent guessing missing values. |
-| **Project A: Tax Math** | Slab tax, surcharge, 87A rebate & relief | **Rule (Compiled AST)** | 100.0% rupee-exact accuracy; 0.69ms latency; $0 run-time cost. | LLMs failed on marginal relief (72.3% accuracy). Statutory arithmetic must always be deterministic and verifiable. |
-| **Project A: Rounding** | Section 288A & 288B nearest ₹10 rounding | **Rule** | 100% exact integer match on odd rupees; 0 drift. | Section 288A/B requires exact half-up integer arithmetic. LLMs frequently hallucinated standard round-off rules. |
-| **Project A: Auditability**| Rupee-to-clause tracing (`R-...` IDs) | **Rule** | 100% verified traceability vs 68.2% for query-time LLM. | Query-time LLMs hallucinated non-existent statutory citations; deterministic AST yields 100% auditable proofs. |
-| **Project B: Check (a)** | Renamed or dropped column | **Declarative Rule** | 96% recall, 0.01 ms latency, $0.00 cost per 1M rows. | Schema validation is instantaneous and infallible; LLMs add massive latency with zero recall benefit. |
-| **Project B: Check (b)** | Column type mutation (int vs str) | **Declarative Rule** | 86% recall, <0.01 ms latency, 0.0% false alarm rate. | Type-coercion checks in Python/Pydantic are orders of magnitude faster and cheaper than model inference. |
-| **Project B: Check (c)** | Date format switch (ISO to MM/DD) | **Declarative Rule** | 96% recall via regex timestamp validators. | Deterministic date parsing identifies format drift instantly on raw stream ingestion. |
-| **Project B: Check (d)** | Lat / Lon swapped | **Declarative Rule** | 96% recall via geographic boundary boxes. | Checking if latitude is negative (-74°) vs positive (40°) takes 1 CPU cycle and has zero false alarms. |
-| **Project B: Check (e)** | Exact duplicate records | **Rule (Hash Set)** | 62% recall on streaming window, $0.00 cost. | Hash-based fingerprinting catches exact duplicates in $O(1)$ time without token spend. |
-| **Project B: Check (f)** | Near-duplicates (minor text edits) | **Statistical / ML** | 78% recall via Jaccard / MinHash token similarity. | Rules miss edited strings; full LLM pairwise comparisons cost thousands of dollars. MinHash provides the optimal balance. |
-| **Project B: Check (g)** | Null spike in single agency stream | **Statistical / ML** | 100% recall via rolling Z-score anomaly detector. | Row-level rules cannot detect aggregate distribution shifts; statistical windowing catches volume anomalies cleanly. |
-| **Project B: Check (h)** | Closed date earlier than created | **Declarative Rule** | 100% recall via simple inequality comparison `closed < created`. | Temporal ordering is purely mathematical; using an LLM here is wasteful and slow. |
-| **Project B: Check (i)** | ZIP code inconsistent with Borough | **Declarative Rule** | 100% recall via indexed borough-prefix lookup map. | Static relational integrity should always live in declarative lookup tables, not probabilistic models. |
-| **Project B: Check (j)** | Complaint Type inconsistent with Desc | **LLM Review** | 100% recall on semantic contradictions (e.g. noise vs pothole). | Free-text descriptors have infinite vocabulary; static rules missed subtle mismatches that LLMs easily classified. |
-| **Project B: Check (k)** | Resolution text contradicts Status | **LLM Review** | 98% recall on nuanced semantic negation. | LLMs excel at detecting that "investigation pending" contradicts "Closed" status, where keyword matching yields false alarms. |
-| **Project B: Check (l)** | Personal Data (PII) in free text | **Declarative Rule** | 76% recall via regex (phones, emails, SSN) with 0ms latency. | Regex catches 80%+ of structured PII for $0 cost. For high-risk enterprise tiers, an async LLM/NER pass catches edge cases. |
-| **Project B: Pipeline** | End-to-End Hybrid Orchestration | **Tiered Hybrid** | 94.8% overall recall, 56,932 rows/sec throughput, $20.70/1M rows. | Combines cheap 100% rule coverage with batch statistics and routes only the 0.8% ambiguous rows to LLM review. |
+# Decision matrix (every row cites a measurement in `results/*.json`; "NM" = not measured here)
+| Component / check | Choice | Measurement | Trade-off, stated honestly |
+|---|---|---|---|
+| A: tax arithmetic | **Rule** (a or c) | 368/368 vs independent oracle; 0.3-0.8 ms; $0; 10x identical | Rules can be wrong in parameters *silently* (Task 5 experiment); mitigated by oracle suite, not by runtime checks |
+| A: rule authoring per Budget | **LLM drafts, human reviews** | First compiled FY25-26 spec was wrong (17/119); diff for a correct update is ~20 lines | LLM saves typing, not review; (c) vs (a) show no accuracy difference |
+| A: query-time LLM (b) | **Not chosen** | NM (needs key) | Cost, latency and determinism unmeasured here; chosen against on prior grounds, to be confirmed by the run |
+| A: audit/trace | **Rule** | 100% traceable (a, c); auditor missed wrong-parameter updates (silent) | Trace proves consistency with the clauses used, not that the clause set is complete |
+| A: free text -> facts | **Hybrid** (LLM extract, rule gate) | Gate: 0 false-compute on 80 labelled cases; rules-extractor field-exact 32/32 | Same author wrote parser and sets: optimistic; LLM extractor NM |
+| B: a/b/c schema, type, format | **Rule** | recall 1.00, FA 0, 53k rows/s | Needs per-tenant contract; stats alternative equal here but 7x slower |
+| B: d swapped coordinates | **Rule** | 1.00 / FA 0 | Needs bbox per tenant |
+| B: e exact duplicates | **Rule** (key+content) | 1.00 | Within-batch only; cross-batch needs state |
+| B: f near-duplicates | **Statistical** (MinHash) | 0.52 vs rules 0.40, precision ~0.5 | Weak on both; candidate for LLM/human adjudication |
+| B: g null spike | **Statistical** | 1.00 recall, 0.99 precision, agency identified; rules give batch alert only | Needs reference null rates |
+| B: h closed<created | **Rule** | 1.00 | Real-data noise gives precision <1 |
+| B: i ZIP vs borough | **Rule** | 0.99 vs stats 0.72 | Official ranges are maintenance cost |
+| B: j complaint vs descriptor | **Rule allow-list or stats** | both 1.00 | Long-tail real descriptors will raise FA (verify on real data); LLM NM |
+| B: k resolution vs status | **Hybrid** (rules/stats, LLM adjudication) | rules 0.94, NB stats 0.73 | Lexicon misses new phrasing; LLM benefit NM |
+| B: l PII | **Rule**, LLM/NER for names | regex 1.00 on phone/email/SSN | Names undetected by regex; unmeasured |
+| B: pipeline | **Tiered hybrid** | recall 0.958, 1.7% routed, 0.77% clean flagged, ~6k rows/s | Tier 3 NM; all B numbers are synthetic until real data is fetched |

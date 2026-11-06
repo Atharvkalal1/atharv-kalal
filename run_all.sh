@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -e
-echo "Starting Fire AI Take-Home Test Runner..."
+pip install -q -r requirements.txt
 python3 run_all.py

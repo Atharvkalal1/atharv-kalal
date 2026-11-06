@@ -1,0 +1,447 @@
+[
+ {
+  "id": "TC_001",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 300000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_002",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 400000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_003",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 500000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_004",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 550000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_005",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 600000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_006",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 700000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_007",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 750000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_008",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 775000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_009",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 800000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_010",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 900000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_011",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 1000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_012",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 1200000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_013",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 1500000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_014",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 1800000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_015",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 2000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_016",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 2500000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_017",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 3000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_018",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 4000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_019",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 5000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_020",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 5085000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_021",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 5500000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_022",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 6000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_023",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 7500000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_024",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 10000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_025",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 10500000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_026",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 15000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_027",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 20000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_028",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 20500000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_029",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 30000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_030",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 50000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_031",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 50850000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_032",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 60000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_033",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 80000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_034",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 100000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_035",
+  "fy": "2024-25",
+  "input": {
+   "gross_salary": 120000000
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_252",
+  "fy": "2025-26",
+  "input": {
+   "gross_salary": 475000,
+   "fy": "2025-26"
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_258",
+  "fy": "2025-26",
+  "input": {
+   "gross_salary": 875000,
+   "fy": "2025-26"
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_264",
+  "fy": "2025-26",
+  "input": {
+   "gross_salary": 1275000,
+   "fy": "2025-26"
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_270",
+  "fy": "2025-26",
+  "input": {
+   "gross_salary": 1675000,
+   "fy": "2025-26"
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_276",
+  "fy": "2025-26",
+  "input": {
+   "gross_salary": 2075000,
+   "fy": "2025-26"
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_282",
+  "fy": "2025-26",
+  "input": {
+   "gross_salary": 2475000,
+   "fy": "2025-26"
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_300",
+  "fy": "2025-26",
+  "input": {
+   "gross_salary": 5000000,
+   "fy": "2025-26"
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_301",
+  "fy": "2025-26",
+  "input": {
+   "gross_salary": 5075000,
+   "fy": "2025-26"
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_302",
+  "fy": "2025-26",
+  "input": {
+   "gross_salary": 5085000,
+   "fy": "2025-26"
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_303",
+  "fy": "2025-26",
+  "input": {
+   "gross_salary": 10075000,
+   "fy": "2025-26"
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_304",
+  "fy": "2025-26",
+  "input": {
+   "gross_salary": 20075000,
+   "fy": "2025-26"
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_305",
+  "fy": "2025-26",
+  "input": {
+   "gross_salary": 50075000,
+   "fy": "2025-26"
+  },
+  "official_old": null,
+  "official_new": null
+ },
+ {
+  "id": "TC_306",
+  "fy": "2025-26",
+  "input": {
+   "gross_salary": 60000000,
+   "fy": "2025-26"
+  },
+  "official_old": null,
+  "official_new": null
+ }
+]

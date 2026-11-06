@@ -1,86 +1,49 @@
-# Project A Results: Income-Tax Engine (Rules vs. LLMs)
+# Project A results: income-tax engine (rules vs LLM vs compiled)
 
-## 1. Executive Summary & Benchmark Comparison
+Every number below is produced by `python run_all.py` into `project_a/results/*.json`.
+**Not measured offline:** implementation (b) (needs `GEMINI_API_KEY`), human stopwatch minutes, and the official-calculator cross-check (needs you). These cells are marked, never estimated.
 
-We built and evaluated the Indian Income-Tax engine for salaried individuals (covering FY 2024–25 and FY 2025–26) across three architectural patterns:
-1. **Implementation (a) Hand-coded Rules**: Pure deterministic Python logic with statutory rules in configuration tables.
-2. **Implementation (b) LLM at Query Time**: Prompts Gemini 2.5 Flash with the full statutory text per request to perform calculation.
-3. **Implementation (c) LLM-Compiled Rules**: Ahead-of-time LLM compilation of statutory clauses into an AST/Rule DSL executed locally by a safe, deterministic interpreter.
+## 1. Test suite (Task 1)
+368 structured cases (FY2024-25: 35 reference, 104 boundary, 70 deductions/age, 40 rounding; FY2025-26: 119 incl. every slab edge, the 12L marginal-relief zone and all surcharge cliffs). **Expected values come from an independent oracle** (`tests/oracle.py`, different structure from (a)/(c)), not from the code under test, plus 5 hand-derived anchors (e.g. FY25-26 gross 13,00,000 -> new-regime tax 26,000). 48 cases are flagged as official-calculator candidates in `data/official_calculator_checks.json`; fill the two columns from the ITD calculator and run `python -m project_a.verify_official` (**0/48 filled so far; the 30-case requirement is not yet met**).
+Plain-language: 50 dev + 30 held-out descriptions (English, Hinglish, incomplete, contradictory), hand-labelled with expected action and expected fields.
 
-### Benchmark Comparison Table (Across 220 Test Cases)
+## 2. Comparison (Task 4)
+| | (a) hand-coded | (b) LLM at query time | (c) LLM-compiled, reviewed DSL |
+|---|---|---|---|
+| Rupee-exact (both regimes, 368 cases) | 100% | **NOT MEASURED** | 100% |
+| 10 repeats, identical full result incl. trace | 368/368 | **NOT MEASURED** | 368/368 |
+| Latency p50 / p95 | ~0.3 / ~0.4 ms | **NOT MEASURED** | ~0.8 / ~0.9 ms |
+| Cost / 1,000 requests | $0 | **NOT MEASURED** (token counts are recorded when run live) | $0 at run time |
+| Every rupee traces to a clause (auditor) | 100% | **NOT MEASURED** | 100% |
+Run `GEMINI_API_KEY=... GEMINI_MIN_INTERVAL_S=7 python -m project_a.benchmark` to fill column (b). Caveat: (a) and (c) agreeing with the oracle shows implementation consistency, not legal correctness; the shared assumptions (s.288A/B rounding points) must be confirmed against the official calculator.
 
-| Implementation | Rupee-Exact Accuracy | Within ₹10 Accuracy | Determinism (10 Repetitions) | Latency (P50) | Latency (P95) | Cost per 1,000 Requests | Clause Traceability Rate |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **(a) Hand-Coded Rules** | **100.0%** (220/220) | **100.0%** | **100.0%** (0 variance) | **0.23 ms** | **0.45 ms** | **$0.00** | **100.0%** (12/12 clauses) |
-| **(b) LLM at Query Time** | **72.3%** (159/220) | **78.6%** | **86.7%** (13.3% drift) | **1,450 ms** | **2,820 ms** | **$0.75** (commercially) | **68.2%** (hallucinated citations) |
-| **(c) LLM-Compiled Rules** | **100.0%** (220/220) | **100.0%** | **100.0%** (0 variance) | **0.69 ms** | **1.12 ms** | **$0.00** (run-time) | **100.0%** (12/12 clauses) |
+## 3. Plain-language parser (Task 3)
+Architecture: extract (rules, or Gemini) -> deterministic gate. The LLM can only extract; the gate decides compute vs ask. Never-guess rules: rent without period, rent without HRA, HRA without city/basic, "home loan" without interest, unspecified insurance/ELSS, silence about deductions all produce a question. Only default: age<60, reported in `assumptions`.
+| Set | Action accuracy | Computed when it should have asked | Fields exact (compute cases) |
+|---|---|---|---|
+| dev 50 | 50/50 | 0 | 17/17 |
+| held-out 30 | 30/30 | 0 | 15/15 |
+**Read with care:** the rules were tuned on the dev set and the "held-out" set was written by the same author after the parser, so it is optimistic. Ten dev labels were *changed* from compute to clarify because the original labels encoded guessing (documented in `label_note`). Before the interview, write 20 fresh unseen cases; LLM-extractor accuracy is not measured.
 
-*Key Measurement Finding*: LLMs at query time are completely unsuitable for statutory arithmetic. Gemini repeatedly drifted on Section 87A marginal relief calculations between ₹7,00,000 and ₹7,27,778 and surcharge cliffs at ₹50,00,000. Conversely, compiling rules once with an LLM and executing them in an AST interpreter achieved identical 100% correctness to hand-coded rules with sub-millisecond latency.
+## 4. Task 5: FY2025-26 change log
+Size of the change (diff lines added/removed): (a) rules JSON +12/-8; (c) compiled DSL +12/-8; (b) rule prose +5/-5 (but re-interpreted by the model each call).
+**Silent-failure experiment** (119 FY2025-26 cases; "silent" = wrong, no exception, auditor still passes):
+| Partial update | (a) wrong/silent | (c) wrong/silent |
+|---|---|---|
+| slabs updated, 87A rebate forgotten | 34/34 | 34/34 |
+| rebate limit updated, 60,000 cap forgotten | 13/13 | 13/13 |
+| 87A updated, slabs forgotten | 84/84 | 84/84 |
+| 25% slab mistyped | 63/63 | 63/63 |
+| FY24-25 file copied unchanged | 113/113 | 113/113 |
+**Finding:** rules and compiled rules do *not* have "0 silent failures": a wrong parameter is silent to the runtime auditor in both. The control is the oracle-backed golden suite, which catches all of them. Missing FY files fail loudly (`ValueError`).
+**Defects found in the first submission by this audit (fixed):** the first-attempt compiled FY25-26 spec mapped raw surcharge/relief/surcharge to one step (17/119 suite cases wrong; the auditor did flag it); the FY25-26 rule text had no clause IDs so *every* FY25-26 answer from (a) and (c) failed traceability; a stale test asserted FY25-26 raises. The suite initially had too few surcharge cases to see the bug (1/87 wrong), which is why 32 surcharge-cliff cases were added.
+(b): **NOT MEASURED**. Human minutes to update: **fill in from your stopwatch** (`results/task5.json`).
 
----
-
-## 2. Plain-Language Parser Evaluation (Task 3)
-
-The natural-language parser handles English and Hinglish salary inputs, extracting financial entities into `TaxInput` while strictly adhering to the prompt instruction: *When information is missing or ambiguous, ask a clarifying question instead of guessing.*
-
-| Category | Total Cases | Accuracy (%) | Clarification Trigger Quality |
-| :--- | :--- | :--- | :--- |
-| **Complete English** | 15 | 100.0% (15/15) | Correctly extracted gross, basic, HRA, rent, 80C, 80D, home loan interest. |
-| **Complete Hinglish** | 12 | 100.0% (12/12) | Correctly parsed "mahina rent", "bachat", "LPA", "kiraya", metro vs non-metro. |
-| **Incomplete / Ambiguous** | 13 | 92.3% (12/13) | Asked for missing rent/city on HRA, basic salary splits, or 80C vs 80D insurance types. |
-| **Contradictory / Invalid** | 10 | 100.0% (10/10) | Flagged basic > gross, negative amounts, and senior rebate claims for age < 60. |
-| **Total / Overall** | **50** | **90.0% (45/50)** | **Zero hallucinations; prioritized clarification over guessing.** |
-
----
-
-## 3. Task 5: The Law Changes (Finance Act 2025 for FY 2025–26)
-
-We applied the Finance Act 2025 changes to all three implementations:
-* Revised New Regime slabs: 0–4L (0%), 4–8L (5%), 8–12L (10%), 12–16L (15%), 16–20L (20%), 20–24L (25%), >24L (30%).
-* Revised Section 87A rebate: Up to ₹12,00,000 taxable income (rebate up to ₹60,000; tax = ₹0), with marginal relief above ₹12L.
-* Standard Deduction: Kept at ₹75,000.
-
-### Change Log & Failure Analysis
-
-| Implementation | Time Taken to Update | Lines of Code Changed | What Broke During Migration | Silent Failures Identified |
-| :--- | :--- | :--- | :--- | :--- |
-| **(a) Hand-Coded Rules** | **15 minutes** | 38 lines (`rules_fy2025_26.json`) | Nothing broke. Schema validated new slab tuples. Explicit `ValueError` raised if requested FY rules were absent. | **0 silent failures**. All tests either passed or threw loud exceptions. |
-| **(b) LLM at Query Time** | **45 minutes** | 15 lines (prompt update) | Prompt required extensive re-engineering to prevent the LLM from mixing up the old ₹7L rebate with the new ₹12L rebate. | **HIGH (18 silent failures)**: LLM silently applied the old 7L threshold or incorrectly calculated the new 12L marginal relief without throwing any syntax errors. |
-| **(c) LLM-Compiled Rules** | **25 minutes** | 42 lines (`compiled/fy2025_26.json`) | Re-compiled DSL spec required human audit before freezing. | **0 silent failures**. `validate_spec()` static dry-run caught missing fields before runtime. |
-
----
-
-## 4. Final Architecture for 100,000 Users
-
-### Architecture Blueprint
-```
-User Free-Text Input (English / Hinglish)
-                 │
-                 ▼
-┌─────────────────────────────────────────────────────────┐
-│ Component 1: Hybrid NL Parser (LLM + Rule Guardrails)   │
-│ - Rule Validator: detects contradictions / invalid data │
-│ - Gemini LLM Extractor: normalizes colloquial text      │
-│ - Clarification Gate: returns questions if ambiguous    │
-└────────────────────────────┬────────────────────────────┘
-                             │ Validated TaxInput
-                             ▼
-┌─────────────────────────────────────────────────────────┐
-│ Component 2: Deterministic Rule Engine (Compiled AST)   │
-│ - Zero runtime LLM calls (0.69ms latency, $0 token cost)│
-│ - Exact integer/fraction math (Section 288A/B rounding) │
-│ - 100% rupee-exact accuracy on both Old & New regimes   │
-└────────────────────────────┬────────────────────────────┘
-                             │ Calculation + Audit Trace
-                             ▼
-┌─────────────────────────────────────────────────────────┐
-│ Component 3: Auditor & Recommendation Explainer (Rules) │
-│ - Computes rupee delta and verifies clause citations   │
-│ - Generates plain-English explanation for CFO/user      │
-└─────────────────────────────────────────────────────────┘
-```
-
-### Component Justification
-1. **Entity Extraction (Hybrid)**: Natural language requires LLM semantic flexibility to understand messy Hinglish. However, it must be guarded by strict deterministic rules that prevent hallucinating missing financial values.
-2. **Tax Arithmetic (Rule / Compiled DSL)**: Tax calculation **must never be delegated to an LLM at query time**. Running an LLM for 100,000 users would cost $75+ per run with 28% calculation errors and 1.5-second latency. A compiled rule engine executes in <1ms with $0 cost and 100% accuracy.
-3. **Budget Maintenance Workflow**: When the Union Budget is announced, an LLM drafts the updated statutory JSON/DSL spec. A tax engineer diffs the AST spec against the official Finance Act clauses, runs the 220+ test suite, and promotes the spec without changing application source code.
+## 5. Final design for 100,000 users (max 2 pages)
+| Component | Type | Why (measured) |
+|---|---|---|
+| Free-text -> facts | **Hybrid**: LLM extracts, rules gate | Rules alone read dev/held-out text but are brittle to unseen phrasing (unmeasured); the gate guarantees 0 computes-when-should-ask on both sets even if extraction is wrong, and an LLM extractor is unit-tested to be stopped by the gate |
+| Tax arithmetic | **Rule** (compiled DSL or JSON; both 100% vs oracle, <1 ms, $0) | Statute needs rupee-exactness, determinism, clause trace. (b) is not used until measured; even then it can't beat 100%/$0 |
+| Rule authoring each Budget | **LLM drafts, human reviews, tests gate** | Spec diff is ~20 lines; LLM drafting is useful, but the first compiled attempt was wrong, so review + oracle are mandatory |
+| Audit trail / explanation | **Rule** | Auditor checks every trace row and reconciliation |
+Keeping it correct through the next Budget: (1) add `rules_fyXX.json` + compiled spec + rule text with clause IDs; (2) regenerate cases from the oracle, extend the oracle independently (second reader of the Finance Act); (3) CI blocks release unless oracle suite, 30+ official-calculator checks and mutation experiment pass; (4) unknown FY raises; (5) route-to-human on parser doubt.

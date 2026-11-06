@@ -1,0 +1,71 @@
+{
+ "change_size": {
+  "a_hand_coded (rules_fy*.json)": {
+   "lines_added": 12,
+   "lines_removed": 8
+  },
+  "c_compiled (compiled/fy*.json)": {
+   "lines_added": 12,
+   "lines_removed": 8
+  },
+  "b_llm (rules_text/fy*.md = the prompt)": {
+   "lines_added": 5,
+   "lines_removed": 5
+  },
+  "note": "Same legal facts, three artefacts. (a) and (c) edit numbers/DSL; (b) edits prose that the model must re-interpret each call."
+ },
+ "silent_failure_experiment": {
+  "slabs updated, 87A rebate forgotten": {
+   "a_wrong": 34,
+   "a_silent": 34,
+   "c_wrong": 34,
+   "c_silent": 34,
+   "cases": 119
+  },
+  "87A rebate updated, slabs forgotten": {
+   "a_wrong": 84,
+   "a_silent": 84,
+   "c_wrong": 84,
+   "c_silent": 84,
+   "cases": 119
+  },
+  "rebate limit updated, rebate cap (60,000) forgotten": {
+   "a_wrong": 13,
+   "a_silent": 13,
+   "c_wrong": 13,
+   "c_silent": 13,
+   "cases": 119
+  },
+  "25% slab (20-24L) typo'd away": {
+   "a_wrong": 63,
+   "a_silent": 63,
+   "c_wrong": 63,
+   "c_silent": 63,
+   "cases": 119
+  },
+  "whole FY2024-25 file copied, nothing changed": {
+   "a_wrong": 113,
+   "a_silent": 113,
+   "c_wrong": 113,
+   "c_silent": 113,
+   "cases": 119
+  }
+ },
+ "first_attempt_compiled_spec": {
+  "cases": 119,
+  "wrong": 17,
+  "wrong_but_fully_traceable": 0,
+  "comment": "wrong answers that no runtime check flags"
+ },
+ "impl_b": {
+  "status": "NOT MEASURED: needs GEMINI_API_KEY"
+ },
+ "unknown_fy_raises": true,
+ "human_minutes_to_update": {
+  "a": null,
+  "b": null,
+  "c": null,
+  "note": "Fill from your own stopwatch; this script cannot measure human time."
+ },
+ "machine_seconds": 0.74
+}

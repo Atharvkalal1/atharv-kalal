@@ -1,0 +1,354 @@
+{
+ "data_source": "SYNTHETIC (run fetch_nyc311.py for real data)",
+ "rows_total": 12000,
+ "reference_rows": 2000,
+ "batch_rows": 1000,
+ "rate": 0.05,
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "llm_live": false,
+ "false_alarms": {
+  "rules": {
+   "a": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "b": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "c": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "d": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "e": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "f": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "g": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "h": {
+    "row_rate": 0.004,
+    "clean_batches_alerted": "4/4"
+   },
+   "i": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "j": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "k": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "l": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   }
+  },
+  "stats": {
+   "a": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "b": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "c": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "d": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "e": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "f": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "g": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "h": {
+    "row_rate": 0.0037,
+    "clean_batches_alerted": "4/4"
+   },
+   "i": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "j": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "k": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   },
+   "l": {
+    "row_rate": 0.0,
+    "clean_batches_alerted": "0/4"
+   }
+  }
+ },
+ "problems": {
+  "a": {
+   "name": "Renamed or dropped column",
+   "rules": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 1.0
+   },
+   "stats": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 1.0
+   },
+   "llm": "NOT MEASURED (set GEMINI_API_KEY)"
+  },
+  "b": {
+   "name": "Column type change",
+   "rules": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 1.0
+   },
+   "stats": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 1.0
+   },
+   "llm": "NOT MEASURED (set GEMINI_API_KEY)"
+  },
+  "c": {
+   "name": "Date format switch partway",
+   "rules": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 0.67
+   },
+   "stats": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 1.0
+   },
+   "llm": "NOT MEASURED (set GEMINI_API_KEY)"
+  },
+  "d": {
+   "name": "Latitude/longitude swapped",
+   "rules": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 0.67
+   },
+   "stats": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 0.67
+   },
+   "llm": "NOT MEASURED (set GEMINI_API_KEY)"
+  },
+  "e": {
+   "name": "Exact duplicates",
+   "rules": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 1.0
+   },
+   "stats": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 1.0
+   },
+   "llm": "NOT MEASURED (set GEMINI_API_KEY)"
+  },
+  "f": {
+   "name": "Near-duplicates",
+   "rules": {
+    "batch_detected": "3/3",
+    "row_recall": 0.4,
+    "row_precision": 0.501,
+    "clarity": 0.67
+   },
+   "stats": {
+    "batch_detected": "3/3",
+    "row_recall": 0.52,
+    "row_precision": 0.531,
+    "clarity": 0.67
+   },
+   "llm": "NOT MEASURED (set GEMINI_API_KEY)"
+  },
+  "g": {
+   "name": "Null spike in one agency",
+   "rules": {
+    "batch_detected": "3/3",
+    "row_recall": 0.0,
+    "row_precision": null,
+    "clarity": 1.0
+   },
+   "stats": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 0.987,
+    "clarity": 0.673
+   },
+   "llm": "NOT MEASURED (set GEMINI_API_KEY)"
+  },
+  "h": {
+   "name": "Closed date earlier than created",
+   "rules": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 0.944,
+    "clarity": 1.0
+   },
+   "stats": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 0.962,
+    "clarity": 0.67
+   },
+   "llm": "NOT MEASURED (set GEMINI_API_KEY)"
+  },
+  "i": {
+   "name": "ZIP inconsistent with borough",
+   "rules": {
+    "batch_detected": "3/3",
+    "row_recall": 0.993,
+    "row_precision": 1.0,
+    "clarity": 0.67
+   },
+   "stats": {
+    "batch_detected": "3/3",
+    "row_recall": 0.72,
+    "row_precision": 1.0,
+    "clarity": 0.67
+   },
+   "llm": "NOT MEASURED (set GEMINI_API_KEY)"
+  },
+  "j": {
+   "name": "Complaint Type inconsistent with Descriptor",
+   "rules": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 1.0
+   },
+   "stats": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 1.0
+   },
+   "llm": "NOT MEASURED (set GEMINI_API_KEY)"
+  },
+  "k": {
+   "name": "Resolution Description contradicts Status",
+   "rules": {
+    "batch_detected": "3/3",
+    "row_recall": 0.94,
+    "row_precision": 1.0,
+    "clarity": 0.33
+   },
+   "stats": {
+    "batch_detected": "3/3",
+    "row_recall": 0.727,
+    "row_precision": 1.0,
+    "clarity": 0.67
+   },
+   "llm": "NOT MEASURED (set GEMINI_API_KEY)"
+  },
+  "l": {
+   "name": "Personal data in free text",
+   "rules": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 0.67
+   },
+   "stats": {
+    "batch_detected": "3/3",
+    "row_recall": 1.0,
+    "row_precision": 1.0,
+    "clarity": 1.0
+   },
+   "llm": "NOT MEASURED (set GEMINI_API_KEY)"
+  }
+ },
+ "throughput_rows_per_sec": {
+  "rules": 53029,
+  "stats": 7671
+ },
+ "llm_cost_projection": {
+  "basis": "PROJECTION: prompt tokens ~ chars/4 of the real prompt; output tokens assumed 300/call; Gemini 2.5 Flash rates in gemini_client.py",
+  "prompt_tokens_per_row": 107.4,
+  "usd_per_million_rows_reference_rates": 23.31,
+  "usd_per_million_rows_list_rates": 62.23
+ },
+ "hybrid": {
+  "rows": 3060,
+  "tier1_findings": 344,
+  "tier2_findings": 839,
+  "routed_to_llm": 53,
+  "routed_pct": 1.73,
+  "tier12_seconds": 0.5003,
+  "llm_executed": false,
+  "llm_projected_usd_per_million_routed_rows": 26.85,
+  "llm_projection_basis": "PROJECTION: prompt tokens ~ chars/4 of the real prompt; output tokens assumed 300/call; Gemini 2.5 Flash rates in gemini_client.py",
+  "wall_seconds": 0.501,
+  "rows_with_a_problem": 718,
+  "rows_per_sec": 6102,
+  "recall_by_type": {
+   "a": "24/30",
+   "b": "30/30",
+   "c": "30/30",
+   "d": "26/26",
+   "e": "21/30",
+   "f": "18/30",
+   "g": "470/477",
+   "h": "30/30",
+   "i": "30/30",
+   "j": "30/30",
+   "k": "30/30",
+   "l": "30/30"
+  },
+  "overall_row_recall": 0.958,
+  "clean_rows_flagged_pct": 0.77,
+  "clean_batches_routed_to_llm_pct": [
+   1.1,
+   0.9
+  ],
+  "note": "Tier 3 NOT executed (no key): recall below is tiers 1+2 only; LLM rows routed are counted and costed as a projection"
+ }
+}

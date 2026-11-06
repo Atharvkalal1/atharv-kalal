@@ -1,0 +1,277 @@
+[
+ {
+  "id": "HO_01",
+  "style": "english",
+  "text": "I'm 45, earn 24 lakh a year, basic 12 lakh, HRA 4.8 lakh, rent 35,000 per month in Mumbai. 80C 1.5 lakh and NPS 50k.",
+  "expected_action": "compute",
+  "expected_fields": {
+   "age": 45,
+   "gross_salary": 2400000,
+   "basic_da": 1200000,
+   "hra_received": 480000,
+   "rent_paid": 420000,
+   "metro_city": true,
+   "sec_80c": 150000,
+   "nps_80ccd1b": 50000
+  }
+ },
+ {
+  "id": "HO_02",
+  "style": "english",
+  "text": "Salary Rs 9,00,000 p.a., no rent, no other deductions.",
+  "expected_action": "compute",
+  "expected_fields": {
+   "gross_salary": 900000
+  }
+ },
+ {
+  "id": "HO_03",
+  "style": "english",
+  "text": "Gross 36 LPA. Basic is 18 LPA. No rent, I own my house. Home loan interest 1.8 lakh, 80C 1.5L, health insurance self 25k.",
+  "expected_action": "compute",
+  "expected_fields": {
+   "gross_salary": 3600000,
+   "basic_da": 1800000,
+   "home_loan_interest": 180000,
+   "sec_80c": 150000,
+   "health_self": 25000
+  }
+ },
+ {
+  "id": "HO_04",
+  "style": "hinglish",
+  "text": "Meri salary 20 lakh per annum hai, basic 10 lakh, HRA 4 lakh milta hai, Delhi me 30000 per month kiraya deta hu. 80C me 1.5 lakh.",
+  "expected_action": "compute",
+  "expected_fields": {
+   "gross_salary": 2000000,
+   "basic_da": 1000000,
+   "hra_received": 400000,
+   "rent_paid": 360000,
+   "metro_city": true,
+   "sec_80c": 150000
+  }
+ },
+ {
+  "id": "HO_05",
+  "style": "hinglish",
+  "text": "Salary 8 lakh hai, koi deduction nahi, koi rent nahi.",
+  "expected_action": "compute",
+  "expected_fields": {
+   "gross_salary": 800000
+  }
+ },
+ {
+  "id": "HO_06",
+  "style": "hinglish",
+  "text": "Mera CTC 40 LPA hai, basic 20 LPA, apna ghar hai, home loan ka interest 2 lakh, NPS 50k aur PPF 1.5 lakh.",
+  "expected_action": "compute",
+  "expected_fields": {
+   "gross_salary": 4000000,
+   "basic_da": 2000000,
+   "home_loan_interest": 200000,
+   "nps_80ccd1b": 50000,
+   "sec_80c": 150000
+  }
+ },
+ {
+  "id": "HO_07",
+  "style": "english",
+  "text": "I am 67 years old and retired, pension 15 lakh per year, health insurance 50,000 for self, no other deductions.",
+  "expected_action": "compute",
+  "expected_fields": {
+   "age": 67,
+   "gross_salary": 1500000,
+   "health_self": 50000
+  }
+ },
+ {
+  "id": "HO_08",
+  "style": "english",
+  "text": "Age 29. Annual gross 11.5 lakh, basic 5.75 lakh. Paying 20,000 rent per month in Pune; HRA component is 2.3 lakh. 80C 1 lakh.",
+  "expected_action": "compute",
+  "expected_fields": {
+   "age": 29,
+   "gross_salary": 1150000,
+   "basic_da": 575000,
+   "hra_received": 230000,
+   "rent_paid": 240000,
+   "metro_city": false,
+   "sec_80c": 100000
+  }
+ },
+ {
+  "id": "HO_09",
+  "style": "english",
+  "text": "Gross salary 18 lakh, no rent. Health insurance premium 20,000 for myself and 45,000 for my parents who are senior citizens. 80C 1.5L.",
+  "expected_action": "compute",
+  "expected_fields": {
+   "gross_salary": 1800000,
+   "health_self": 20000,
+   "health_parents": 45000,
+   "parents_senior": true,
+   "sec_80c": 150000
+  }
+ },
+ {
+  "id": "HO_10",
+  "style": "hinglish",
+  "text": "Salary 13 lakh, Bangalore me rehta hu, rent 15000 mahina, basic 6.5 lakh, HRA 2.6 lakh, 80C 1.5L",
+  "expected_action": "compute",
+  "expected_fields": {
+   "gross_salary": 1300000,
+   "basic_da": 650000,
+   "hra_received": 260000,
+   "rent_paid": 180000,
+   "metro_city": false,
+   "sec_80c": 150000
+  }
+ },
+ {
+  "id": "HO_11",
+  "style": "english",
+  "text": "I earn 60 LPA. Basic 30 LPA. No rent. 80C 1.5 lakh and NPS 50,000. Health insurance 25,000.",
+  "expected_action": "compute",
+  "expected_fields": {
+   "gross_salary": 6000000,
+   "basic_da": 3000000,
+   "sec_80c": 150000,
+   "nps_80ccd1b": 50000,
+   "health_self": 25000
+  }
+ },
+ {
+  "id": "HO_12",
+  "style": "english",
+  "text": "Annual salary of 5.2 lakh and nothing to claim",
+  "expected_action": "compute",
+  "expected_fields": {
+   "gross_salary": 520000
+  }
+ },
+ {
+  "id": "HO_13",
+  "style": "hinglish",
+  "text": "Gross 12.5 lakh. Medical insurance 30000 apne liye, 60000 mummy papa ke liye jo senior citizen hain. No rent.",
+  "expected_action": "compute",
+  "expected_fields": {
+   "gross_salary": 1250000,
+   "health_self": 30000,
+   "health_parents": 60000,
+   "parents_senior": true
+  }
+ },
+ {
+  "id": "HO_14",
+  "style": "english",
+  "text": "Salary: 14 lakhs. Basic: 7 lakhs. HRA: 2.8 lakhs. Rent: 22,000 monthly, city: Chennai. 80C: 1.5 lakhs.",
+  "expected_action": "compute",
+  "expected_fields": {
+   "gross_salary": 1400000,
+   "basic_da": 700000,
+   "hra_received": 280000,
+   "rent_paid": 264000,
+   "metro_city": true,
+   "sec_80c": 150000
+  }
+ },
+ {
+  "id": "HO_15",
+  "style": "hinglish",
+  "text": "Meri salary 11 lakh hai, rent 1.5 lakh saal ka, HRA nahi milta.",
+  "expected_action": "compute",
+  "expected_fields": {
+   "gross_salary": 1100000,
+   "rent_paid": 150000
+  }
+ },
+ {
+  "id": "HO_16",
+  "style": "english",
+  "text": "I make 15 lakh. What's the better regime?",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_17",
+  "style": "english",
+  "text": "Salary 18 LPA, rent 25000 per month Mumbai.",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_18",
+  "style": "hinglish",
+  "text": "Meri income 10 lakh hai, aur health insurance bhi hai.",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_19",
+  "style": "contradictory",
+  "text": "gross 12 lakh, basic 15 lakh",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_20",
+  "style": "contradictory",
+  "text": "I am 17 and earn 8 lakh salary.",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_21",
+  "style": "incomplete",
+  "text": "Salary 9 lakh, home loan hai.",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_22",
+  "style": "hinglish",
+  "text": "Mera tax kitna banega?",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_23",
+  "style": "incomplete",
+  "text": "Gross 30 LPA, basic 15 LPA, rent 50000, HRA 6 lakh, Delhi.",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_24",
+  "style": "contradictory",
+  "text": "Salary 16 lakh and I claim senior citizen benefits. I'm 41.",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_25",
+  "style": "incomplete",
+  "text": "Income 25 lakh, paying rent in Hyderabad, HRA 5 lakh, basic 12 lakh.",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_26",
+  "style": "contradictory",
+  "text": "Salary 7 lakh, 80C -150000.",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_27",
+  "style": "incomplete",
+  "text": "I invest in ELSS and PPF, salary 14 LPA.",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_28",
+  "style": "incomplete",
+  "text": "Salary 20 lakh, basic 10 lakh, HRA 4 lakh, rent 30000 monthly.",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_29",
+  "style": "incomplete",
+  "text": "Gross 6 lakh. Tax?",
+  "expected_action": "clarify"
+ },
+ {
+  "id": "HO_30",
+  "style": "incomplete",
+  "text": "age 70, salary 20 lakh, basic 10 lakh, parents ke liye 1 lakh insurance",
+  "expected_action": "clarify"
+ }
+]
