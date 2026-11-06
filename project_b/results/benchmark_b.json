@@ -307,8 +307,8 @@
   }
  },
  "throughput_rows_per_sec": {
-  "rules": 53029,
-  "stats": 7671
+  "rules": 42456,
+  "stats": 6162
  },
  "llm_cost_projection": {
   "basis": "PROJECTION: prompt tokens ~ chars/4 of the real prompt; output tokens assumed 300/call; Gemini 2.5 Flash rates in gemini_client.py",
@@ -322,13 +322,13 @@
   "tier2_findings": 839,
   "routed_to_llm": 53,
   "routed_pct": 1.73,
-  "tier12_seconds": 0.5003,
+  "tier12_seconds": 0.5472,
   "llm_executed": false,
   "llm_projected_usd_per_million_routed_rows": 26.85,
   "llm_projection_basis": "PROJECTION: prompt tokens ~ chars/4 of the real prompt; output tokens assumed 300/call; Gemini 2.5 Flash rates in gemini_client.py",
-  "wall_seconds": 0.501,
+  "wall_seconds": 0.548,
   "rows_with_a_problem": 718,
-  "rows_per_sec": 6102,
+  "rows_per_sec": 5580,
   "recall_by_type": {
    "a": "24/30",
    "b": "30/30",

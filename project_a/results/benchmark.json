@@ -14,8 +14,8 @@
   "traceable_pct": 100.0,
   "nondeterministic_cases": 0,
   "repeats": 10,
-  "latency_ms_p50": 0.285,
-  "latency_ms_p95": 0.438,
+  "latency_ms_p50": 0.333,
+  "latency_ms_p95": 0.46,
   "cost_per_1k_usd": 0.0,
   "by_category": {
    "reference": "35/35",
@@ -39,8 +39,8 @@
   "traceable_pct": 100.0,
   "nondeterministic_cases": 0,
   "repeats": 10,
-  "latency_ms_p50": 0.746,
-  "latency_ms_p95": 0.857,
+  "latency_ms_p50": 1.081,
+  "latency_ms_p95": 1.353,
   "cost_per_1k_usd": 0.0,
   "by_category": {
    "reference": "35/35",
